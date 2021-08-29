@@ -8,7 +8,7 @@ router
   res.render('settings', { 
     title: 'Settings',
     msg: 'Change your settings',
-    pageMainClass: 'settings'
+    pageMainClass: 'settings',
     loggedIn: loginStatus(req),
     who: whoIs(req),
     active: getMenuActive('settings', activeMenu)
@@ -18,7 +18,7 @@ router
   res.render('settings', { 
     title: 'Manage Payment Options',
     msg: 'Manage your payments',
-    pageMainClass: 'payment'
+    pageMainClass: 'payment',
     loggedIn: loginStatus(req),
     who: whoIs(req),
     active: getMenuActive('payment', activeMenu)
