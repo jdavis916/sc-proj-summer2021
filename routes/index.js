@@ -1,3 +1,15 @@
+import { 
+  permEditPost,
+  permDelPost,
+  permProfile,
+  permProject,
+  viewMessages,
+  adminMessages,
+  delComment
+   } from '../permissions/perms';
+
+import { authUser, authRole, authBan } from '../basicAuth';
+import User from "../backend/models/user";
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
@@ -18,21 +30,21 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'contact'
   });
 })
-.get('/rental', function(req, res, next) {
+.get('/rental', /*authUser*/ function(req, res, next) {
   res.render('contact', { 
     title: 'Contact Us',
     msg: 'Send us a message.',
     pageMainClass: 'contact'
   });
 })
-.get('/profile', function(req, res, next) {
+.get('/profile', /*authUser*/ function(req, res, next) {
   res.render('contact', { 
     title: 'Contact Us',
     msg: 'Send us a message.',
     pageMainClass: 'contact'
   });
 })
-.get('/list', function(req, res, next) {
+.get('/list', /*authUser*/ function(req, res, next) {
   res.render('contact', { 
     title: 'Contact Us',
     msg: 'Send us a message.',
