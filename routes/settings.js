@@ -5,17 +5,23 @@ const mongoose = require('mongoose');
 var db = mongoose.connection;
 router
 .get('/', function(req, res, next) {
-  res.render('contact', { 
-    title: 'Contact Us',
-    msg: 'Send us a message.',
-    pageMainClass: 'contact'
+  res.render('settings', { 
+    title: 'Settings',
+    msg: 'Change your settings',
+    pageMainClass: 'settings'
+    loggedIn: loginStatus(req),
+    who: whoIs(req),
+    active: getMenuActive('settings', activeMenu)
   });
 })
 .get('/payment', function(req, res, next) {
-  res.render('contact', { 
-    title: 'Contact Us',
-    msg: 'Send us a message.',
-    pageMainClass: 'contact'
+  res.render('settings', { 
+    title: 'Manage Payment Options',
+    msg: 'Manage your payments',
+    pageMainClass: 'payment'
+    loggedIn: loginStatus(req),
+    who: whoIs(req),
+    active: getMenuActive('payment', activeMenu)
   });
 })
 
