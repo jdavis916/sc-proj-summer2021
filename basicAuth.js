@@ -4,6 +4,9 @@ a user's role */
 function authUser(req, res, next){
 	if (req.user == null){
 		res.status(403);
+		res.render('error', {
+			message: 'You need to sign in!',
+		})
 		return res.send('You need to sign in');
 	};
 
