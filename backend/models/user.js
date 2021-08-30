@@ -6,40 +6,69 @@ var app = express();
 var passportLocalMongoose = require('passport-local-mongoose');
 const Schema = mongoose.Schema;
 export const User = new Schema({
-    uid: Number,
+    _id: Schema.Types.ObjectId,
     role: {
         type: String, 
         default: 'user'
     },
-    f_name: String,
-    l_name: String,
-    email: String,
-    username: String,
-    password: String,
-    prof_pic: String,
-    address: String, 
-    inquiries: {
-        inq_id: String,
-        date: Date
+    f_name: {type: String, required: true},
+    l_name: {type: String, required: true},
+    email: {type: String, required: true},
+    username: {
+        type: String, 
+        required: true
     },
-    rides: Array,
+    password: {
+        type: String, 
+        required: true
+    },
+    prof_pic: {
+        type: String, 
+        default: ''
+    },
+    address: {
+        type: String, 
+        default: ''
+    },
+    inquiries: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'contact',
+        default: []
+    }],
+    rides: [{
+        type: Schema.Types.ObjectId, 
+        ref: 'Rides',
+        default: []
+    }],
     ride_count: {
         type: Number, 
         default: 0
     },
-    reward_status: String,
+    reward_status: {
+        type: String, 
+        default: ''
+    },
     voucher_tokens: {
         type: Number, 
         default: 0
     },
     used_coupons: {
-        coupon_id: String,
-        date_used: Date
+        coupon_id: [{
+            type: Schema.Types.ObjectId, 
+            ref: 'Coupons',
+            default: []
+        }]
     },
     pay: {
-        method_name: String,
+        method_name: {
+            type: String, 
+            default: ''
+        },
         token_id: String,
-        token: String,
+        token: {
+            type: String, 
+            default: ''
+        },
         exp_date: Date,
         active: {
             type: Boolean, 
