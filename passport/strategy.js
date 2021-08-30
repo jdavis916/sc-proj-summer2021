@@ -21,7 +21,7 @@ passport.use(
   	  userModel.findOne({ email: email }, function (err, user) {
   	    if (err) { return done(err); }
   	    if (!user) { return done(null, false); }
-  	    if (!user.verifyPassword(pw)) { return done(null, false); }
+  	    if (!user.verifyPassword(pw)) { return done(null, false); }else{return done(null, createdUser)}
   	    return done(null, user);
   	  });
   	}
