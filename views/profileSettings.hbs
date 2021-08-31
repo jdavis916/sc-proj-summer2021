@@ -1,39 +1,43 @@
 <main class={{pageMainClass}}>
-	<section class="container">
-		<div class="row profId">
-			<div class="col-md">
-				<img src={{profPic}} alt="profile photo" />
-			</div>
-			<div class="col-md">
-				<p>{{fname}} {{lname}}</p>
-				<p>{{email}}</p>
-				<p>{{phone}}</p>
-			</div>
-		</div>
-		<section class="row">
-			<div class="container profEdit">
-				<h3>Verified Information</h3>
-				<div class="row">
-					<img src={{newPic}}>
-					<button type="button" class="btn-dark">Upload New Profile Image</button>
-				</div>
-				<div class="row">
-					<p>Username: {{username}}</p>
-					<button type="button" class="btn-dark">Edit</button>
-				</div>
-				<div class="row">
-					<p>Email: {{email}}</p>
-					<button type="button" class="btn-dark">Edit</button>
-				</div>
-				<div class="row">
-					<p>Phone: {{phone}}</p>
-					<button type="button" class="btn-dark">Edit</button>
-				</div>
-				<div class="row">
-					<p>Address: {{address}}</p>
-					<button type="button" class="btn-dark">Edit</button>
-				</div>
-			</div>
-		</section>
-	</section>
+  <div  class="container">
+    <section class="row">
+      <!--<div class="row profId">-->
+        <div class="col-12 col-md-6">
+          <img src={{profPic}} alt="profile photo" />
+        </div>
+        <div class="col-12 col-md-6">
+          <p>{{fname}} {{lname}}</p>
+          <p>{{email}}</p>
+          <p>{{phone}}</p>
+        </div>
+      <!--</div>-->
+    </section>
+    <section class="row">
+      <div class="col-12 profEdit">
+        <h3>Verified Information</h3>
+        <figure>
+          <div class="">
+            <img src={{newPic}}>
+            <button type="button" class="btn-dark">Upload New Profile Image</button>
+          </div>
+          <div class="">
+            <p>Username: {{username}}</p>
+            <button type="button" class="btn-dark">Edit</button>
+          </div>
+          <div class="">
+            <p>Email: {{email}}</p>
+            <button type="button" class="btn-dark">Edit</button>
+          </div>
+          <div class="">
+            <p>Phone: {{phone}}</p>
+            <button type="button" class="btn-dark">Edit</button>
+          </div>
+          <div class="">
+            <p>Address: {{address}}</p>
+            <button type="button" class="btn-dark">Edit</button>
+          </div>
+        </figure>
+      </div>
+    </section>
+  </div>
 </main>

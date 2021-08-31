@@ -3,6 +3,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+
+.settingsProfile figure{
+  display: inline-block;
+  border: 1px solid #000;
+}
 /*a {
   color: #00B7FF;
 }*/
