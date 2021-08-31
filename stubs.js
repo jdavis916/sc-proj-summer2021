@@ -2,6 +2,8 @@
 
 var profPic = '/img/profStub.jpg';
 
+var map = '/img/mapStub.png'
+
 var payments = [{
   name: 'Chase', 
   exp: 'June 2025', 
@@ -43,5 +45,6 @@ var cars = [{
 module.exports = {
   profPic,
   payments,
-  cars
+  cars,
+  map
 };

@@ -7,7 +7,7 @@
   adminMessages,
   delComment
    } from '../permissions/perms';*/
-import { profPic, payments, cars } from '../stubs';
+import { profPic, payments, cars, map } from '../stubs';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
 var express = require('express');
@@ -64,6 +64,8 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'rental',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    map: map,
+    cars: cars
     //active: getMenuActive('rental', activeMenu)
   });
 })
