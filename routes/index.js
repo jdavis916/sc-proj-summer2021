@@ -7,7 +7,7 @@
   adminMessages,
   delComment
    } from '../permissions/perms';*/
-
+import { profPic, payments, cars } from '../stubs';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
 var express = require('express');
@@ -114,11 +114,12 @@ router.get('/', function(req, res, next) {
 .post('/login', passport.authenticate('local', { failureRedirect: '/error' }), authBan, (req, res) => {
   //console.log(req);
   console.log('=-=-=-=-=-=-=Test=-=-=-=-=-=-');
-  console.log(req.user.id);
+  console.log('user id: ' + req.user.id);
   try{
     //console.log(JSON.stringify(req.headers));
-    res.statusCode = 200;
     res.setHeader('Content-Type', 'application/x-www-form-urlencoded');
+    res.statusCode = 200;
+    
     res.redirect('/profile');
     //window.location.reload();
 

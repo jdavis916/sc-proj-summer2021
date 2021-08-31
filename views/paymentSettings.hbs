@@ -1,0 +1,24 @@
+<main class={{pageMainClass}}>
+	<section class="container">
+		<div class="row profId">
+			<div class="col-md">
+				<img src={{profPic}} alt="profile photo" />
+			</div>
+			<div class="col-md">
+				<p>{{fname}} {{lname}}</p>
+				<p>{{email}}</p>
+				<p>{{phone}}</p>
+			</div>
+		</div>
+		<section class="row changePayment">
+			{{#each payments}}
+			<!--payment options loaded in here. variables: {{this.name}}, {{this.exp}},{{this.active}}-->
+				<div class="payOption">
+					<p></p>
+					<p></p>
+					<p></p>
+				</div>
+			{{/each}}
+		</section>
+	</section>
+</main>

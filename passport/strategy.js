@@ -1,3 +1,4 @@
+var express = require('express');
 const userModel = require('../backend/models/user')
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
@@ -16,10 +17,11 @@ passport.deserializeUser((id, done)=>{
 //strategy for passport to handle sign in validation
 passport.use(
 	new LocalStrategy(
-  	function(email, pw, done) {
+  	function(req, username, pw, done) {
 //finds a user by the info entered in. returns an error if user isn't found
-  	  userModel.findOne({ email: email }, function (err, user) {
+  	  userModel.findOne({ username: username }, function (err, user) {
   	    if (err) { return done(err); }
+  	    //if(userModel.findOne({ username: username }) === req.username){ console.log('already logged in'); return done(err); }
   	    if (!user) { return done(null, false); }
   	    if (!user.verifyPassword(pw)) { return done(null, false); }else{return done(null, createdUser)}
   	    return done(null, user);

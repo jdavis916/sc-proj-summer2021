@@ -5,8 +5,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 //var session = require('express-session');
 var passport = require('passport');
-import session from 'express-session'
-import MongoStore from 'connect-mongo'
+import session from 'express-session';
+import MongoStore from 'connect-mongo';
 var authenticate = require('./authenticate');
 //Loads the handlebars module
 const handlebars = require('express-handlebars');
@@ -78,6 +78,20 @@ app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/settings', settingsRouter);
 
+// function auth (req, res, next) {
+//   console.log(req.username);
+
+//   if (!req.username) {
+//     // var err = new Error('You are not authenticated!');
+//     // err.status = 403;
+//     // next(err); 
+//     res.send('auth error');
+//   }
+//   else {
+//     next();
+//   }
+// }
+// app.use(auth);
 //CORS setup
 //app.use(cors());
 
