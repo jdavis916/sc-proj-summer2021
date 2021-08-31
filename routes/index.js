@@ -89,6 +89,26 @@ router.get('/', function(req, res, next) {
     //active: getMenuActive('list', activeMenu)
   });
 })
+.get('/signup', /*authUser*/ function(req, res, next) {
+  res.render('signup', { 
+    title: 'Signup',
+    msg: 'Its free',
+    pageMainClass: 'signup',
+    loggedIn: loginStatus(req),
+    who: whoIs(req),
+    //active: getMenuActive('list', activeMenu)
+  });
+})
+.get('/login', /*authUser*/ function(req, res, next) {
+  res.render('login', { 
+    title: 'Log in',
+    msg: 'Log in',
+    pageMainClass: 'login',
+    loggedIn: loginStatus(req),
+    who: whoIs(req),
+    //active: getMenuActive('list', activeMenu)
+  });
+})
 .post('/signup', (req, res, next)=>{
   User.register(new User({
     _id: mongoose.Types.ObjectId(),
