@@ -15,6 +15,25 @@ function whoIs(req){
   return (req.user) ? (req.user.f_name) : undefined;
 }
 
+function getMenuActive(key, menu){
+  //makes a copy of the menu object
+  var activeMenu = JSON.parse(JSON.stringify(menu));
+  // var activeMenu = menu;
+
+  //changed the proper key to true based on page route
+  activeMenu[key] = true;
+
+  return activeMenu;
+}
+
+var activeMenu = {
+  home: false,
+  rental: false,
+  settings: false,
+  profile: false,
+  contact: false
+};
+
 router
 .get('/', function(req, res, next) {
   res.render('settings', { 
@@ -28,8 +47,8 @@ router
     email:'123@456.com',
     phone:'(719)574-7782',
     address:'123 N. East St.',
-    profPic: profPic
-    //active: getMenuActive('settings', activeMenu)
+    profPic: profPic,
+    active: getMenuActive('settings', activeMenu)
   });
 })
 .get('/payment', function(req, res, next) {

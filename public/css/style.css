@@ -1,6 +1,43 @@
+/*define root variables*/
+:root{
+  --main-color: #0728AB;
+  --secondary-color: #04012E;
+  --accent-color: #FFD991;
+  --lato: 'Lato', sans-serif;
+  --montserrat: 'Montserrat', sans-serif;
+}
+/*defining fonts*/
+/*lato*/
+/*@font-face {
+  font-family: latoBold;
+  src: url(/fonts/lato/Lato-Bold.ttf);
+}@font-face {
+  font-family: latoLight;
+  src: url(/fonts/lato/Lato-Light.ttf);
+}@font-face {
+  font-family: lato;
+  src: url(/fonts/lato/Lato-Regular.ttf);
+}*/
+
+/*montserrat*/
+/*@font-face {
+  font-family: montserrat;
+  src: url(inc/fonts/Montserrat/Montserrat-Regular.ttf);
+}@font-face {
+  font-family: montserratBold;
+  src: url(inc/fonts/Montserrat/Montserrat-Bold.ttf);
+}@font-face {
+  font-family: montserratLight;
+  src: url(inc/fonts/Montserrat/Montserrat-Light.ttf);
+}*/
+
 body {
   /*padding: 50px;*/
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
+  /*font-family: var(--lato);*/
+  font-family: var(--montserrat);
+  font-size: 1.2rem;
+  font-weight:  700;
 }
 
 /*a {

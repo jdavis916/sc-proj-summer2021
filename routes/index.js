@@ -36,6 +36,26 @@ function whoIs(req){
   return activeMenu;
 }*/
 
+function getMenuActive(key, menu){
+  //makes a copy of the menu object
+  var activeMenu = JSON.parse(JSON.stringify(menu));
+  // var activeMenu = menu;
+
+  //changed the proper key to true based on page route
+  activeMenu[key] = true;
+
+  return activeMenu;
+}
+
+var activeMenu = {
+  home: false,
+  rental: false,
+  settings: false,
+  profile: false,
+  contact: false
+};
+
+
 /* GET home page */
 router.get('/', function(req, res, next) {
   res.render('index', { 
@@ -44,7 +64,7 @@ router.get('/', function(req, res, next) {
   	pageMainClass: 'pgHome',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    //active: getMenuActive('home', activeMenu)
+    active: getMenuActive('home', activeMenu)
   });
 })
 .get('/contact', function(req, res, next) {
@@ -54,7 +74,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'contact',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    //active: getMenuActive('contact', activeMenu)
+    active: getMenuActive('contact', activeMenu)
   });
 })
 .get('/rental', /*authUser*/ function(req, res, next) {
@@ -65,8 +85,8 @@ router.get('/', function(req, res, next) {
     loggedIn: loginStatus(req),
     who: whoIs(req),
     map: map,
-    cars: cars
-    //active: getMenuActive('rental', activeMenu)
+    cars: cars,
+    active: getMenuActive('rental', activeMenu)
   });
 })
 .get('/profile', /*authUser*/ function(req, res, next) {
@@ -76,7 +96,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'profile',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    //active: getMenuActive('profile', activeMenu)
+    active: getMenuActive('profile', activeMenu)
   });
 })
 .get('/list', /*authUser*/ function(req, res, next) {
