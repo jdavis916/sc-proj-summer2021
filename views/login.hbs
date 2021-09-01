@@ -3,8 +3,11 @@
 		<div class="row">
 			<form id="formSignin" class="signinForm" action="/login" method="POST">
 				<!---form fields go here-->
+				<input type="text" placeholder="username" required id="username" name="username">
+				<input type="text" placeholder="password" required id="password" name="password">
+
 				<!--values: username, password -->
-				<input type="submit" value="submit" class="signinBtn" />
+				<input type="submit" value="Log in" class="btn-primary signinBtn" />
 			</form>
 		</div>
 	</section>
