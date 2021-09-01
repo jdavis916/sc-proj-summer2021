@@ -15,7 +15,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
     <!--Custom CSS-->
     <link rel="stylesheet" href="/css/style.css" />
+    <script>
+        var loggedIn = {{loggedIn}};
 
+        console.log(loggedIn);
+    </script>
   </head>
   <body>
     <div class="container">
@@ -38,17 +42,14 @@
                   <a class="nav-link  {{#if active.contact}}active{{/if}}" href="/contact">Contact</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link {{#if active.profile}}active{{/if}}" href="/profile">Profile</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link {{#if active.settings}}active{{/if}}" href="/settings">Settings</a>
-                </li>
-                <li class="nav-item">
                   {{#if loggedIn}}
-                  <a class="nav-link" id="btnProf"  href='/profile'>{{who}}</a>
+                  <a class="nav-link {{#if active.profile}}active{{/if}}" id="btnProf"  href='/profile'>{{who}}</a>
                   {{else}}
                   <a class="nav-link" id="btnProf"  href='#'></a>
                   {{/if}}
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{#if active.settings}}active{{/if}}" href="/settings">Settings</a>
                 </li>
                 <li class="nav-item">
                   {{#if loggedIn}}
@@ -58,107 +59,10 @@
                   {{/if}}
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="btnLogout" href='/login'>{{#if loggedIn}}Sign out{{else}}Login{{/if}}</a>
+                  <a class="nav-link" id="btnLogout" href='#'>{{#if loggedIn}}Sign out{{else}}Login{{/if}}</a>
                 </li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-
-      <!--
-      <header class="p-3 bg-dark text-white">
-        <div class="container">
-          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
-            </a>
-
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-              <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-              <li><a href="#" class="nav-link px-2 text-white">About</a></li>
-            </ul>
-
-            <div class="text-end">
-              <button type="button" class="btn btn-outline-light me-2">Login</button>
-              <button type="button" class="btn btn-success">Sign-up</button>
-            </div>
-          </div>
-        </div>
-      </header>
--->
-
-
-
-
-
-
-
-
-      <!--
-      <header>
-        <div class="collapse bg-dark" id="navbarHeader">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-md-7 py-4">
-                <h4 class="text-white">About</h4>
-                <p class="text-muted">Add some information about the album below, the author, or any other background context. Make it a few sentences long so folks can pick up some informative tidbits. Then, link them off to some social networking sites or contact information.</p>
-              </div>
-              <div class="col-sm-4 offset-md-1 py-4">
-                <h4 class="text-white">Contact</h4>
-                <ul class="list-unstyled">
-                  <li><a href="#" class="text-white">Follow on Twitter</a></li>
-                  <li><a href="#" class="text-white">Like on Facebook</a></li>
-                  <li><a href="#" class="text-white">Email me</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="navbar navbar-dark bg-dark shadow-sm">
-          <div class="container">
-            <a href="#" class="navbar-brand d-flex align-items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-              <strong>Album</strong>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          </div>
-        </div>
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
-      </header>-->
-=======
-=======
->>>>>>> Stashed changes
-{{!--         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar w/ text</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarText">
-              <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/rental">Rental</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Contact Us</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav> --}}
-<<<<<<< Updated upstream
-      </header>
->>>>>>> Stashed changes
-=======
-      </header>
->>>>>>> Stashed changes

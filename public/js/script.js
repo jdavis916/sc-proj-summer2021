@@ -6,13 +6,15 @@ window.addEventListener('DOMContentLoaded', (event) => {
     	document.getElementById('#btnProf').style.visibility = "hidden";
     } */
 	document.querySelector('#btnLogout').onclick = function logout(){
+		console.log('clicked logout');
 		if(loggedIn){
-			this.innerHTML = 'Logout';
+			//this.innerHTML = 'Logout';
 		//true
+			console.log('logged in is true');
 		   location.replace('/logout');
 		} else{
 		//false
-			this.innerHTML = 'Sign in';
+			//this.innerHTML = 'Sign in';
 			location.replace('/login');
 		}
 	}
