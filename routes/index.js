@@ -40,7 +40,7 @@ function whoIs(req){
 router.get('/', function(req, res, next) {
   res.render('index', { 
   	title: 'Autono',
-  	msg: 'Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.',
+  	msg: 'Making the future of driving an option for anyone, anywhere, any weather.',
   	pageMainClass: 'pgHome',
     loggedIn: loginStatus(req),
     who: whoIs(req),
