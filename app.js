@@ -30,7 +30,7 @@ try{
 	fullConnect = mongoose.connect(`mongodb+srv://srrAdmin:${pw}@cluster0.nxxyb.mongodb.net/${dbName}?retryWrites=true&w=majority`, {
 		useNewUrlParser: true, 
 		useUnifiedTopology: true
-	})
+	});
 	console.log('db connected');
 }catch(e){
 	console.log('could not connect to db');
