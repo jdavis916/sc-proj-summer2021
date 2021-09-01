@@ -2,7 +2,17 @@ body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.imgR{
+  width: 100%;
+}
 
+/*Header*/
+
+/*Navbar*/
+
+nav.navbar{
+  margin-bottom: 10px;
+}
 
 .settingsProfile figure{
   display: inline-block;
