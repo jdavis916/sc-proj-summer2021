@@ -9,8 +9,8 @@ export const contactSchema = new Schema({
     subject: String,
     phone: String,
     email: String,
-    msg : String
-    date: Date
+    msg : String,
+    date: Date,
     coupons: Array
 });
  // 
