@@ -15,6 +15,69 @@
   <body>
     <div class="container">
       <header>
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+          <div class="container">
+            <a class="navbar-brand" href="#">Carousel</a>
+            <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link  {{#if active.home}}active{{/if}}" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  {{#if active.rental}}active{{/if}}" href="/rental">Rental</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link  {{#if active.contact}}active{{/if}}" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{#if active.profile}}active{{/if}}" href="/profile">Profile</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link {{#if active.settings}}active{{/if}}" href="/settings">Settings</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+
+      <!--
+      <header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Features</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
+              <li><a href="#" class="nav-link px-2 text-white">About</a></li>
+            </ul>
+
+            <div class="text-end">
+              <button type="button" class="btn btn-outline-light me-2">Login</button>
+              <button type="button" class="btn btn-success">Sign-up</button>
+            </div>
+          </div>
+        </div>
+      </header>
+-->
+
+
+
+
+
+
+
+
+      <!--
+      <header>
         <div class="collapse bg-dark" id="navbarHeader">
           <div class="container">
             <div class="row">
@@ -44,4 +107,4 @@
             </button>
           </div>
         </div>
-      </header>
+      </header>-->

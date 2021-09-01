@@ -2,7 +2,22 @@ body {
   /*padding: 50px;*/
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+.imgR{
+  width: 100%;
+}
 
+/*Header*/
+
+/*Navbar*/
+
+nav.navbar{
+  margin-bottom: 10px;
+}
+
+.settingsProfile figure{
+  display: inline-block;
+  border: 1px solid #000;
+}
 /*a {
   color: #00B7FF;
 }*/
