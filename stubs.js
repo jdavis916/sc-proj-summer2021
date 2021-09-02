@@ -14,6 +14,14 @@ var payments = [{
   active: 'not active'
 }];
 
+var avatar = [{
+  path: '/img/man'
+}, {
+  path: '/img/man1'
+}, {
+  path: '/img/woman'
+}]
+
 var cars = [{
   year: 2020,
   make: 'Tesla',

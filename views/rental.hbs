@@ -11,7 +11,26 @@
 		<div class="row carList">
 			<!--cars will be rendered here. variables:{{this.make}},{{this.model}},{{this.year}},{{this.type}},{{this.color}},{{this.seats}},{{this.doors}},{{this.img}}-->
 			{{#each cars}}
-
+				<div class="card">
+					{{!-- <img src="..." class="card-img-top" alt="..."> --}}
+					<figure class="col-sm-8 offset-sm-2">
+						<section class="carImageWrapper">
+							<img class="carimg" src="{{this.img}}" alt="{{this.make}}pic"/>
+						</section>
+						<figcaption>
+							<div class="carInfoWrapper" style="font-size: 24px;">
+								<span>{{this.model}}</span>
+								<span>{{this.year}}</span>
+								<span>{{this.type}}</span>
+								<span>{{this.color}}</span>
+								<span>{{this.seats}}Seats</span>
+								<span>{{this.doors}}Doors</span>
+							</div>
+						</figcaption>
+					</figure>
+					<div class="card-body">
+					</div>
+				</div>
 			{{/each}}
 		</div>
 	</section>
