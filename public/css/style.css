@@ -59,8 +59,15 @@ body {
 h1{
   font-size: 4.5rem;
 }
-
-
+.rentalBox{
+  font-size: 1.5rem;
+}
+.testimonial h5{
+  font-size:  0.9rem;
+}
+.testimonial p{
+  font-size:  0.6rem;
+}
 /*Responsive*/
 
 @media all and (min-width: 768px){
