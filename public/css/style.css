@@ -59,6 +59,10 @@ h1{
   font-size: 4.5rem;
 }
 
+/*making the footer stick to the bottom*/
+main{
+   min-height: calc(100vh - 250px);
+}
 
 .carimg{
   width: 100%;
@@ -76,7 +80,7 @@ h1{
   margin-right: auto;
   margin-top: 20px;
   text-align: center;
-
+}
 /*making header and footer full width*/
 /*body > .container-fluid, footer > .container-fluid{
   padding-left: 0;
@@ -103,11 +107,9 @@ h1{
 
 /*footer at the bottom of page*/
 .footer{
-  position: absolute;
-  bottom: 0px;
-  width: 100vw;
-  padding: 0 15px;
-  background-color: var(--secondary-color);
+  /*position: absolute;
+  margin-top: auto;*/
+  /*background-color: var(--secondary-color);*/
   color: white;
 }
 .footerLinks{
