@@ -60,6 +60,23 @@ h1{
   font-size: 4.5rem;
 }
 
+.carimg{
+  width: 100%;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.card{
+  width: 18rem;
+  padding: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  text-align: center;
+}
 
 /*Responsive*/
 
