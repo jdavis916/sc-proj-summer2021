@@ -89,7 +89,7 @@ main{
 
 /*sigin in alignment*/
 .signinContainer{
-  margin-top: 10%;
+  
  /* width: 350px;*/
   border-radius: 15px;
   color: white;
@@ -120,12 +120,14 @@ main{
   font-size: 1.5rem;
 }
 .formSignin, .formSignup{
+
   max-width: 500px;
   border-radius: 15px;
   padding: 15px;
   margin: 0 auto;
+  margin-top: 10%;
   text-align: center;
-  background-color: var(--secondary-color);
+  background-color: #04012E;
   z-index: 1;
 }
 
@@ -137,7 +139,16 @@ main{
   text-align: center;
   z-index: 2;
 }
-
+.signup{
+  background-image: url('/img/blueTesla.jpg');
+  background-position: center;
+  background-size: cover;
+}
+.login{
+  background-image: url('/img/blueTesla2.jpg');
+  background-position: center;
+  background-size: cover;
+}
 /*Responsive*/
 
 @media all and (min-width: 768px){
