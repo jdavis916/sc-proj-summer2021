@@ -89,7 +89,7 @@ main{
 
 /*sigin in alignment*/
 .signinContainer{
-  
+
  /* width: 350px;*/
   border-radius: 15px;
   color: white;
@@ -148,6 +148,16 @@ main{
   background-image: url('/img/blueTesla2.jpg');
   background-position: center;
   background-size: cover;
+}
+
+.rentalBox{
+  font-size: 1.5rem;
+}
+.testimonial h5{
+  font-size:  0.9rem;
+}
+.testimonial p{
+  font-size:  0.6rem;
 }
 /*Responsive*/
 
