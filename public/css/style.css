@@ -105,6 +105,23 @@ main{
   width: 200px;
 }
 
+.homeTitle{
+  color: #0728AB;
+}
+.whatWeDo p{
+  font-size: 1rem;
+  text-align:  center;
+}
+.rentalBox{
+  font-size: 1.5rem;
+}
+.testimonial h5{
+  font-size:  0.9rem;
+}
+.testimonial p{
+  font-size:  0.6rem;
+}
+
 /*footer at the bottom of page*/
 .footer{
   /*position: absolute;
@@ -150,15 +167,6 @@ main{
   background-size: cover;
 }
 
-.rentalBox{
-  font-size: 1.5rem;
-}
-.testimonial h5{
-  font-size:  0.9rem;
-}
-.testimonial p{
-  font-size:  0.6rem;
-}
 /*Responsive*/
 
 @media all and (min-width: 768px){
