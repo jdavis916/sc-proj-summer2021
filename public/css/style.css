@@ -37,7 +37,7 @@ body {
   /*font-family: var(--lato);*/
   font-family: var(--montserrat);
   font-size: 1.2rem;
-  font-weight:  700;
+  /*font-weight:  700;*/
 }
 .imgR{
   width: 100%;
@@ -45,20 +45,20 @@ body {
 /*a {
   color: #00B7FF;
 }*/
-*{
+/**{
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
-}
-.container{
+}*/
+/*.container{
   width: 100%;
   background-color: #04012E;
   background-postion: center;
-
-}
+}*/
 h1{
   font-size: 4.5rem;
 }
+
 
 .carimg{
   width: 100%;
@@ -76,6 +76,64 @@ h1{
   margin-right: auto;
   margin-top: 20px;
   text-align: center;
+
+/*making header and footer full width*/
+/*body > .container-fluid, footer > .container-fluid{
+  padding-left: 0;
+  padding-right: 0;
+}*/
+
+/*sigin in alignment*/
+.signinContainer{
+  margin-top: 10%;
+ /* width: 350px;*/
+  border-radius: 15px;
+  color: white;
+}
+.loginField{
+  width: 85%;
+  margin: auto;
+  margin-bottom: 1rem;
+}
+/*----------*/
+/*sign in and login form buttons*/
+.signinUpBtn{
+  width: 200px;
+}
+
+/*footer at the bottom of page*/
+.footer{
+  position: absolute;
+  bottom: 0px;
+  width: 100vw;
+  padding: 0 15px;
+  background-color: var(--secondary-color);
+  color: white;
+}
+.footerLinks{
+  list-style-type: none;
+}
+.footerItem{
+  padding: 15px;
+  font-size: 1.5rem;
+}
+.formSignin, .formSignup{
+  max-width: 500px;
+  border-radius: 15px;
+  padding: 15px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--secondary-color);
+  z-index: 1;
+}
+
+/*error flags*/
+.errorFlag{
+  width: 100%;
+  border-radius: 0 0 15px 15px;
+  margin: auto;
+  text-align: center;
+  z-index: 2;
 }
 
 /*Responsive*/
@@ -84,4 +142,14 @@ h1{
   p{
     font-size: 1.5rem;
   }
+  /*.formSignin, .formSignup{
+    width: 50%;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--secondary-color);
+  }*/
 }
+
+

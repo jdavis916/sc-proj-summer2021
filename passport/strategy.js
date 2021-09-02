@@ -4,6 +4,7 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
 var db = mongoose.connection;
+//var signInError = false;
 //stores a token for the session in the browser cookie
 passport.serializeUser((user, done)=>{
 	done(null, user.id);
@@ -20,10 +21,9 @@ passport.use(
   	function(req, username, pw, done) {
 //finds a user by the info entered in. returns an error if user isn't found
   	  userModel.findOne({ username: username }, function (err, user) {
-  	    if (err) { return done(err); }
-  	    //if(userModel.findOne({ username: username }) === req.username){ console.log('already logged in'); return done(err); }
-  	    if (!user) { return done(null, false); }
-  	    if (!user.verifyPassword(pw)) { return done(null, false); }else{return done(null, createdUser)}
+  	    if (err) { return done(err);}
+  	    if (!user) { return done(null, false);}
+  	    if (!user.verifyPassword(pw)) { return done(null, false); }
   	    return done(null, user);
   	  });
   	}

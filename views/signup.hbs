@@ -1,14 +1,30 @@
 <main class="pageMainClass">
-	<section class="container signupContainer">
-		<div class="row">
-			<form id="formSignup" class="signupForm" action="/signup" method="POST">
-				<!---form fields go here-->
-				<!--values: fname, lname, username, password, address-->
-				<input type="submit" value="submit" class="signupBtn" />
-			</form>
-		</div>
-	</section>
-	<section class="container signInLink">
-
-	</section>
+	<div class="container">
+		<section class="row signinContainer">
+			<div class="col-12">
+				<form id="formSignup" class="formSignup" action="/signup" method="POST">
+			      <h1 class="h3 mb-3 font-weight-normal">Sign up for Free!</h1>
+			      <label for="fname" class="sr-only">First Name</label>
+			      <input type="text" id="f_name" name="f_name" class="form-control loginField" placeholder="First Name" required autofocus>
+			      <label for="lname" class="sr-only">Last Name</label>
+			      <input type="text" id="l_name" name="l_name" class="form-control loginField" placeholder="Password" required>
+			      <label for="signupEmail" class="sr-only">Email</label>
+			      <input type="email" id="email" name="email" class="form-control loginField" placeholder="Email" required>
+			      <label for="username" class="sr-only">Username</label>
+			      <input type="text" id="username" name="username" class="form-control loginField" placeholder="Username" required>
+			      <label for="signupPassword" class="sr-only">Password</label>
+			      <input type="password" id="password" name="password" class="form-control loginField" placeholder="Password" required>
+			      <div class="checkbox mb-3">
+			      </div>
+			      <button class="btn btn-lg btn-primary btn-block signinUpBtn" type="submit">Register</button>
+			      <p class="mt-5 mb-3 text-muted">&copy; 2022-2029</p>
+			      {{#if error}}
+			      	<p class="bg-danger errorFlag">User not found. Try again.</p>
+					{{else}}
+					<p></p>
+					{{/if}}
+			    </form>
+			</div>
+		</section>
+	</div>
 </main>

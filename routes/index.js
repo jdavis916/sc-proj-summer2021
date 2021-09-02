@@ -7,6 +7,8 @@
   adminMessages,
   delComment
    } from '../permissions/perms';*/
+//import signinError from '../passport/strategy';
+//import {signInError} from '../passport/strategy';
 import { profPic, payments, cars, map } from '../stubs';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
@@ -54,8 +56,7 @@ var activeMenu = {
   profile: false,
   contact: false
 };
-
-
+var error = false;
 /* GET home page */
 router.get('/', function(req, res, next) {
   res.render('index', { 
@@ -116,20 +117,24 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'signup',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    //error: signInError
     //active: getMenuActive('list', activeMenu)
   });
 })
 .get('/login', /*authUser*/ function(req, res, next) {
+  //console.log(signinError);
   res.render('login', { 
     title: 'Log in',
     msg: 'Log in',
     pageMainClass: 'login',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    //error: signInError
     //active: getMenuActive('list', activeMenu)
   });
 })
 .post('/signup', (req, res, next)=>{
+  console.log(req);
   User.register(new User({
     _id: mongoose.Types.ObjectId(),
     f_name: req.body.f_name,
@@ -140,6 +145,7 @@ router.get('/', function(req, res, next) {
     address: req.body.address,
   }), req.body.password, ((err, user)=>{
     if(err){
+      console.log(req.password);
       console.log(err);
       res.send('error signing up: ' + err);
     }else{
@@ -147,13 +153,14 @@ router.get('/', function(req, res, next) {
       passport.authenticate('local', { 
         failureRedirect: '/error' 
       })(req, res, () => {
+        error = false;
         res.setHeader('Content-Type', 'application/json');
-        res.send('login and signup successful');
+        res.redirect('/profile');
       });
     }
   })
 )})
-.post('/login', passport.authenticate('local', { failureRedirect: '/error' }), authBan, (req, res) => {
+.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), authBan, (req, res) => {
   //console.log(req);
   console.log('=-=-=-=-=-=-=Test=-=-=-=-=-=-');
   console.log('user id: ' + req.user.id);
@@ -161,15 +168,15 @@ router.get('/', function(req, res, next) {
     //console.log(JSON.stringify(req.headers));
     res.setHeader('Content-Type', 'application/x-www-form-urlencoded');
     res.statusCode = 200;
-    
     res.redirect('/profile');
+    error = false;
     //window.location.reload();
 
   }catch(err){
-    var path = '/login';
-    res.send(err);
-  } 
-    
+    error = true;
+    //var path = '/login';
+    res.redirect('/login');
+  }   
 })
 .get('/logout', (req, res) => {
   if (req.session) {
