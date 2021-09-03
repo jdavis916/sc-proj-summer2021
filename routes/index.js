@@ -93,11 +93,18 @@ router.get('/', function(req, res, next) {
 .get('/profile', /*authUser*/ function(req, res, next) {
   res.render('profile', { 
     title: 'Profile',
-    msg: 'Your profile',
+    msg: req.user.f_name + "'s Profile",
     pageMainClass: 'profile',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    active: getMenuActive('profile', activeMenu)
+    active: getMenuActive('payment', activeMenu),
+    fname:req.user.f_name,
+    lname:req.user.l_name,
+    email:req.user.email,
+    username: req.user.username,
+    phone:req.user.phone,
+    address:req.user.address,
+    profPic:profPic
   });
 })
 .get('/list', /*authUser*/ function(req, res, next) {
