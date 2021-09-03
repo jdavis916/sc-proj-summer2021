@@ -11,7 +11,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			//this.innerHTML = 'Logout';
 		//true
 			console.log('logged in is true');
-		   location.replace('/logout');
+		   location.replace('/users/logout');
 		} else{
 		//false
 			//this.innerHTML = 'Sign in';
