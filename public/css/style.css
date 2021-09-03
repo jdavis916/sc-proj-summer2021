@@ -46,6 +46,9 @@ main {
 footer .row{
 font-size: 1rem;
 }
+footer {
+
+}
 .imgR{
   width: 100%;
 }
@@ -138,6 +141,11 @@ main{
 .rentalBox p{
   color: #FFD991;
 }
+.rentalBox ul{
+  padding: 0;
+  list-style-type: none;
+  
+}
 .testimonial h3{
   color: #FFD991;
 }
@@ -168,7 +176,7 @@ ul{
 }
 .footerItem{
   padding: 15px;
-  font-size: 1.5rem;
+  font-size: 0.8rem;
 }
 .formSignin, .formSignup{
 
