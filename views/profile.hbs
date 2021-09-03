@@ -1,4 +1,20 @@
 <main class="{{pageMainClass}}">
-	<h1>{{title}}</h1>
-	<p>{{msg}}</p>
+	<main class={{pageMainClass}}>
+  <div  class="container">
+    <section class="row">
+      <!--<div class="row profId">-->
+        <div class="col-12 col-md-4">
+          <img src="{{profPic}}" class="img-fluid imgR" alt="profile photo" />
+        </div>
+        <div class="col-12 col-md-8">
+          <p>{{fname}} {{lname}}</p>
+          <p>{{email}}</p>
+          <p>{{phone}}</p>
+          <p>Username: {{username}}</p>
+          <p>Address: {{address}}</p>
+        </div>
+      <!--</div>-->
+    </section>
+  </div>
+</main>
 </main>
