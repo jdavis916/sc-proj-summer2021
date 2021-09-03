@@ -1,14 +1,3 @@
-/*import { 
-  permEditPost,
-  permDelPost,
-  permProfile,
-  permProject,
-  viewMessages,
-  adminMessages,
-  delComment
-   } from '../permissions/perms';*/
-//import signinError from '../passport/strategy';
-//import {signInError} from '../passport/strategy';
 import { profPic, payments, cars, map } from '../stubs';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
@@ -27,16 +16,6 @@ function loginStatus(req){
 function whoIs(req){
   return (req.user) ? (req.user.f_name) : undefined;
 }
-
-//what page am i on?
-/*function getMenuActive(key, menu){
-  //gets the list of menu elements
-  activeMenu = JSON.parse(JSON.stringify(menu));
-
-  //change the key's value based on page route
-  activeMenu[key] = true;
-  return activeMenu;
-}*/
 
 function getMenuActive(key, menu){
   //makes a copy of the menu object
@@ -59,6 +38,7 @@ var activeMenu = {
 var error = false;
 /* GET home page */
 router.get('/', function(req, res, next) {
+  //database queries will be added later
   res.render('index', { 
   	title: 'Autono',
   	msg: 'Making the future of driving an option for anyone, anywhere, any weather.',
@@ -140,96 +120,20 @@ router.get('/', function(req, res, next) {
     //active: getMenuActive('list', activeMenu)
   });
 })
-.post('/signup', (req, res, next)=>{
-  console.log(req);
-  User.register(new User({
-    _id: mongoose.Types.ObjectId(),
-    f_name: req.body.f_name,
-    l_name: req.body.l_name,
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password,
-    address: req.body.address,
-  }), req.body.password, ((err, user)=>{
-    if(err){
-      console.log(req.password);
-      console.log(err);
-      res.send('error signing up: ' + err);
-    }else{
-      console.log('sign up successful.');
-      passport.authenticate('local', { 
-        failureRedirect: '/error' 
-      })(req, res, () => {
-        error = false;
-        res.setHeader('Content-Type', 'application/json');
-        res.redirect('/profile');
-      });
-    }
+//rental form post
+.post('/thankyou', function(req,res,next){
+  res.render('thankyou', {
+    pageMainClass: 'thankYou',
+    title: 'Thanks! Your rental has been successfully placed.',
+    path: '/'
   })
-)})
-.post('/login', passport.authenticate('local', { failureRedirect: '/login' }), authBan, (req, res) => {
-  //console.log(req);
-  console.log('=-=-=-=-=-=-=Test=-=-=-=-=-=-');
-  console.log('user id: ' + req.user.id);
-  try{
-    //console.log(JSON.stringify(req.headers));
-    res.setHeader('Content-Type', 'application/x-www-form-urlencoded');
-    res.statusCode = 200;
-    res.redirect('/profile');
-    error = false;
-    //window.location.reload();
-
-  }catch(err){
-    error = true;
-    //var path = '/login';
-    res.redirect('/login');
-  }   
 })
-.get('/logout', (req, res) => {
-  if (req.session) {
-    req.session.destroy();
-    res.clearCookie('session-id');
-    res.redirect('/');
-  }
-  else {
-    var err = new Error('You are not logged in!');
-    err.status = 403;
-    next(err);
-  }
+//testing thank you page 
+.get('/thankyou', function(req,res,next){
+  res.render('thankyou', {
+    pageMainClass: 'thankYou',
+    title: 'Thanks! Your rental has been successfully placed.',
+    path: '/rental'
+  })
 })
 module.exports = router;
-
-
-
-
-
-
-/*
-- home, get
-  - cars, get
-  -users, get
--contact, get
-  - /thankYou, post
-  - /subjects, get : content of dropdowns
--rental, get
-  -map, get
-  -available cars, get
-  -/rental, post
--profile, get
-  -rides, get
-  -user info, get
--payment, get
-  -ride history, get
-  -user info, get
-  -rides, get (using uid)
-  -stripe api for payment, get
--settings, get
-  -user, get
-  -cars, get (using uid)
-  -user, post
-  -cars, post/put   
--list your car, get
-  -cars, get
-  -cars, post (using uid)
-
-*/

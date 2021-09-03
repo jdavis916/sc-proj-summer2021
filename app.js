@@ -16,6 +16,7 @@ import mongoose from 'mongoose';
 var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var settingsRouter = require('./routes/settings');
+var usersRouter = require('./routes/users');
 
 var app = express();
 
@@ -77,6 +78,7 @@ app.use(passport.session());
 app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/settings', settingsRouter);
+app.use('/users', usersRouter);
 
 // function auth (req, res, next) {
 //   console.log(req.username);
