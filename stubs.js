@@ -86,6 +86,32 @@ var cars = [{
   color: 'White',
   img: '/img/audiA42018.png'
 }];
+
+var rides = [{
+  date: Date.now(),
+  price: '$' + 35,
+  car: '2024 Subaru Impreza',
+  start_location: '123 W East St.',
+  end_location:'456 S Nort Rd.'
+},{
+  date: Date.now(),
+  price: '$' + 48,
+  car: '2027 Ford Focus',
+  start_location: '456 W North St.',
+  end_location:'456 S North Rd.'
+},{
+  date: Date.now(),
+  price: '$' + 28,
+  car: '2024 Subaru Impreza',
+  start_location: '123 W East St.',
+  end_location:'456 S Nort Rd.'
+},{
+  date: Date.now(),
+  price: '$' + 30,
+  car: '2021 Tesla Model Y',
+  start_location: '123 W East St.',
+  end_location:'456 S Nort Rd.'
+}]
 module.exports = {
   profPic,
   payments,
