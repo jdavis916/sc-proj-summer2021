@@ -82,6 +82,14 @@ main{
   margin-top: 20px;
   text-align: center;
 }
+
+.main-profile-img{
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: #FFFFFF;
+}
 /*making header and footer full width*/
 /*body > .container-fluid, footer > .container-fluid{
   padding-left: 0;
@@ -105,8 +113,6 @@ main{
 .signinUpBtn{
   width: 200px;
 }
-
-
 
 .homeTitle{
   color: #0728AB;
