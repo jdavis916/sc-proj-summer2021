@@ -38,6 +38,7 @@ body {
   font-family: var(--montserrat);
   font-size: 1.2rem;
   /*font-weight:  700;*/
+  background-color: #04012E;
 }
 .imgR{
   width: 100%;
@@ -50,18 +51,18 @@ body {
   padding: 0;
   font-family: 'Lato', sans-serif;
 }*/
-/*.container{
-  width: 100%;
-  background-color: #04012E;
-  background-postion: center;
-}*/
+
 h1{
   font-size: 4.5rem;
+  color: #FFD991;
 }
 
 /*making the footer stick to the bottom*/
 main{
    min-height: calc(100vh - 250px);
+}
+.row{
+  margin-left: ;
 }
 
 .carimg{
@@ -105,15 +106,28 @@ main{
   width: 200px;
 }
 
+
+}
 .homeTitle{
   color: #0728AB;
 }
 .whatWeDo p{
   font-size: 1rem;
   text-align:  center;
+  color: #FFD991;
+}
+.whatWeDo{
+  margin-bottom:  45px;
 }
 .rentalBox{
   font-size: 1.5rem;
+  text-align: center;
+}
+.rentalBox p{
+  color: #FFD991;
+}
+.testimonial h3{
+  color: #FFD991;
 }
 .testimonial h5{
   font-size:  0.9rem;
@@ -122,6 +136,14 @@ main{
   font-size:  0.6rem;
 }
 
+li a{
+  font-size: 0.9rem;
+  text-align: center;
+}
+ul{
+  list-style: none;
+  text-align: center;
+}
 /*footer at the bottom of page*/
 .footer{
   /*position: absolute;
