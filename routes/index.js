@@ -59,6 +59,7 @@ router.get('/', function(req, res, next) {
   });
 })
 .get('/rental', /*authUser*/ function(req, res, next) {
+  console.log(payments);
   res.render('rental', { 
     title: 'Rent a Car',
     msg: 'Choose from our selection',
@@ -67,6 +68,7 @@ router.get('/', function(req, res, next) {
     who: whoIs(req),
     map: map,
     cars: cars,
+    payments: payments,
     active: getMenuActive('rental', activeMenu)
   });
 })
@@ -128,12 +130,12 @@ router.get('/', function(req, res, next) {
     path: '/'
   })
 })
-//testing thank you page 
-.get('/thankyou', function(req,res,next){
-  res.render('thankyou', {
-    pageMainClass: 'thankYou',
-    title: 'Thanks! Your rental has been successfully placed.',
-    path: '/rental'
-  })
-})
+// //testing thank you page 
+// .get('/thankyou', function(req,res,next){
+//   res.render('thankyou', {
+//     pageMainClass: 'thankYou',
+//     title: 'Thanks! Your rental has been successfully placed.',
+//     path: '/rental'
+//   })
+// })
 module.exports = router;

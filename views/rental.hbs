@@ -1,37 +1,118 @@
 <main class={{pageMainClass}}>
-	<section class="container">
-		<div class="row rentalTxt">
-
-		</div>
-		<div class="row mapContainer">
-			<figure class="mapArea">
-				<img class="map" src={{map}} />
-			</figure>
-		</div>
-		<div class="row carList">
-			<!--cars will be rendered here. variables:{{this.make}},{{this.model}},{{this.year}},{{this.type}},{{this.color}},{{this.seats}},{{this.doors}},{{this.img}}-->
-			{{#each cars}}
-				<div class="card">
-					{{!-- <img src="..." class="card-img-top" alt="..."> --}}
-					<figure class="col-sm-8 offset-sm-2">
-						<section class="carImageWrapper">
-							<img class="carimg" src="{{this.img}}" alt="{{this.make}}pic"/>
-						</section>
-						<figcaption>
-							<div class="carInfoWrapper" style="font-size: 24px;">
-								<span>{{this.model}}</span>
-								<span>{{this.year}}</span>
-								<span>{{this.type}}</span>
-								<span>{{this.color}}</span>
-								<span>{{this.seats}}Seats</span>
-								<span>{{this.doors}}Doors</span>
-							</div>
-						</figcaption>
-					</figure>
-					<div class="card-body">
+	<div class="container">
+		<h1>{{title}}</h1>
+		<section class="row">
+			<div class="row rentalTxt">
+				<h2>Service Areas Near You</h2>
+			</div>
+		</section>
+		<section class="row mapContainer">
+			<div class="col-12">
+				<figure class="mapArea">
+					<img class="map" src={{map}} />
+				</figure>
+			</div>
+		</section>
+		<hr class="rentalDivider"></hr>
+		<section class="row carList">
+			{{!-- <div class="col-md-12">
+				<div class="row"> --}}
+					<div class="col-12 col-md-5">
+						<div class="row rentalForm">
+							<form class="col-sm-12 mb-3" action="/thankyou" method="POST">
+								<h2 class="rentalFormTitle">Book a Rental Today!</h2>
+								<div class="rentalField">
+									<label for="carsSelect">Select a Vehicle</label>
+									<select class="form-select form-select-lg" id="carsSelect">
+										{{#each cars}}
+											<option value="{{this.id}}">{{this.year}} {{this.make}} {{this.model}}</option>
+										{{/each}}
+									</select>
+								</div>
+								{{!-- <div class="row">
+									<div class="col"> --}}
+								<div class="rentalField">
+									<label for="pickupLocation">Pickup Location</label>
+									<input class="form-control form-control-lg rentalField" id="pickupLocation">
+								</div>
+								<div class="rentalField">
+									<label for="paymentSelect">Select a Payment Option</label>
+									<select class="form-control form-select-lg rentalField" id="paymentSelect">
+								
+										{{#each payments}}
+											{{#if this.active}}<option value="{{this.id}}">{{this.name}} -- {{this.accountNumber}}</option>{{/if}}
+										{{/each}}
+									</select>
+								</div>
+								<div class="rentalField">
+									<label for="startTime">From:</label>
+									<input class="form-control form-control-lg rentalField" id="startTime" type="datetime-local">
+								</div>
+								<div class="rentalField">
+									<label for="endTime">To:</label>
+									<input class="form-control form-control-lg rentalField" id="endTime" type="datetime-local">
+								</div>
+								<input class="btn btn-primary" type="submit" value="Submit">
+							</form>
+						</div>
 					</div>
-				</div>
-			{{/each}}
-		</div>
-	</section>
+					<div class="col-12 col-md-6 offset-md-1">
+						<h2>Available Cars:</h2>
+						<div class="row">
+						{{#each cars}}
+								{{!-- <img src="..." class="card-img-top" alt="..."> --}}
+							<figure class="col-8 offset-2 col-sm-6 offset-sm-0 col-lg-4">
+								<div class="card carCard">
+									<section class="carImageWrapper">
+										<img class="carimg" src="{{this.img}}" alt="{{this.make}}pic"/>
+									</section>
+									<figcaption>
+										<div class="carInfoWrapper">
+											<span>{{this.year}} {{this.make}} {{this.model}}</span> |
+											<span>{{this.type}}</span> |
+											<span>{{this.color}}</span> |
+											<span>{{this.seats}} Seats</span> |
+											<span>{{this.doors}} Doors</span> 
+										</div>
+									</figcaption>
+								</div>
+							</figure>
+						{{/each}}
+						</div>
+					</div>
+		</section>
+			{{!-- <section class="row rentalFormArea">
+				<form class="col-sm-12 mb-3 rentalForm" action="/thankyou" method="POST">
+					<h2 class="rentalFormTitle">Book a Rental Today!</h2>
+					<label for="carsSelect">Select a Vehicle</label>
+					<select class="form-select" id="carsSelect">
+						{{#each cars}}
+							<option value="{{this.id}}">{{this.year}} {{this.make}} {{this.model}}</option>
+						{{/each}}
+					</select>
+					<div class="row">
+						<div class="col">
+							<label for="pickupLocation">Pickup Location</label>
+							<input class="form-control" id="pickupLocation">
+							<label for="paymentSelect">Select a Payment Option</label>
+							<select class="form-select" id="paymentSelect">
+								{{#each payments}}
+									{{#if this.active}}<option value="{{this.id}}">{{this.name}} -- {{this.accountNumber}}</option>{{/if}}
+								{{/each}}
+							</select>
+						</div>
+						<div class="col">
+							<label for="startTime">From:</label>
+							<input class="form-control" id="startTime" type="datetime-local">
+							<label for="endTime">To:</label>
+							<input class="form-control" id="endTime" type="datetime-local">
+						</div>
+					</div>
+					
+					<input class="btn btn-primary" type="submit" value="Submit">
+				</form>
+			</section> --}}
+
+		
+	</div>
 </main>
