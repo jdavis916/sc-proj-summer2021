@@ -38,14 +38,9 @@ body {
   font-family: var(--montserrat);
   font-size: 1.2rem;
   /*font-weight:  700;*/
-  background-color: #04012E;
+  /*background-color: #04012E;*/
 }
-main {
-  margin-bottom: 60px;
-}
-footer .row{
-font-size: 1rem;
-}
+
 .imgR{
   width: 100%;
 }
@@ -62,13 +57,12 @@ h1{
   font-size: 4.5rem;
   color: #FFD991;
 }
-
+.rental h2{
+  text-align: center;
+}
 /*making the footer stick to the bottom*/
 main{
    min-height: calc(100vh - 250px);
-}
-.row{
-  margin-left: ;
 }
 
 .carimg{
@@ -80,13 +74,16 @@ main{
   text-align: center;
 }
 
-.card{
-  width: 18rem;
+.carCard{
+  max-height: 16rem;
+  font-size: 1rem;
+  max-width: 15rem;
   padding: 0;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
   text-align: center;
+  display: inline-block;
 }
 
 .main-profile-img{
@@ -200,6 +197,30 @@ ul{
   background-position: center;
   background-size: cover;
 }
+
+/*rental map*/
+.mapContainer, .rentalDivider{
+  text-align: center;
+  margin-bottom: 40px;
+}
+/*----------*/
+/*rental form*/
+.carList{
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.rentalForm{
+  height: 100%;
+  padding: 15px;
+  color: white;
+  background-color: var(--secondary-color);
+  max-width: 900px;
+  border-radius: 15px;
+}
+.rentalField{
+  margin-bottom: 25px;
+}
+/*-----------*/
 
 /*Responsive*/
 

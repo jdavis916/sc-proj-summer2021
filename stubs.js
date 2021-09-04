@@ -5,13 +5,17 @@ var profPic = '/img/profStub.jpg';
 var map = '/img/mapStub.png'
 
 var payments = [{
-  name: 'Chase', 
+  id: 1,
+  name: 'Chase',
+  accountNumber: 445564, 
   exp: 'June 2025', 
-  active: 'active'
+  active: true
 },{
-  name: 'Apple Pay', 
+  id: 2,
+  name: 'Apple Pay',
+  accountNumber: 25638, 
   exp: 'Aug 2028', 
-  active: 'not active'
+  active: false
 }];
 
 var avatar = [{
@@ -23,6 +27,7 @@ var avatar = [{
 }]
 
 var cars = [{
+  id: 1,
   year: 2020,
   make: 'Tesla',
   model: 'Model 3',
@@ -32,6 +37,7 @@ var cars = [{
   color: 'Red',
   img: '/img/civicTypeR2019.png'
 },{
+  id: 2,
   year: 2019,
   make: 'Tesla',
   model: 'Model S',
@@ -41,6 +47,7 @@ var cars = [{
   color: 'White',
   img: '/img/civicTypeR2019.png'
 },{
+  id: 3,
   year: 2021,
   make: 'Tesla',
   model: 'Model X',
@@ -50,6 +57,7 @@ var cars = [{
   color: 'Blue',
   img: '/img/civicTypeR2019.png'
 },{
+  id: 4,
   year: 2021,
   make: 'Tesla',
   model: 'Model Y',
@@ -59,6 +67,7 @@ var cars = [{
   color: 'Black',
   img: '/img/civicTypeR2019.png'
 },{
+  id: 5,
   year: 2026,
   make: 'Toyota',
   model: 'Avalon',
@@ -68,6 +77,7 @@ var cars = [{
   color: 'Red',
   img: '/img/civicTypeR2019.png'
 },{
+  id: 6,
   year: 2027,
   make: 'Ford',
   model: 'Focus',
@@ -77,6 +87,7 @@ var cars = [{
   color: 'Blue',
   img: '/img/sonic2019.png'
 },{
+  id: 7,
   year: 2024,
   make: 'Subaru',
   model: 'Impreza',
