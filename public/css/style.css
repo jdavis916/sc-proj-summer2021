@@ -91,6 +91,7 @@ main{
   border-radius: 50%;
   border-style: solid;
   border-color: #FFFFFF;
+  margin-bottom: 120px;
 }
 /*making header and footer full width*/
 /*body > .container-fluid, footer > .container-fluid{
@@ -221,7 +222,7 @@ ul{
   max-width: 900px;
   border-radius: 15px;
 }
-.rentalField{
+.rentalField, .contactField{
   margin-bottom: 25px;
 }
 /*-----------*/
@@ -242,6 +243,21 @@ ul{
 }
 /*--------------*/
 
+/*contact page*/
+.contactArea{
+  padding: 15px;
+  color: white;
+  background-color: var(--secondary-color);
+  border-radius: 15px;
+}
+.contactInfoCard{
+  padding: 15px;
+  color: white;
+  background-color: var(--main-color);
+  margin-left: 15px;
+  border-radius: 15px;
+}
+/*------------*/
 /*Responsive*/
 
 @media all and (min-width: 768px){
