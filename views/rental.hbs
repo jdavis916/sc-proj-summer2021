@@ -19,11 +19,12 @@
 				<div class="row"> --}}
 					<div class="col-12 col-md-5">
 						<div class="row rentalForm">
-							<form class="col-sm-12 mb-3" action="/thankyou" method="POST">
+							<form class="col-sm-12 mb-3" action="/rentcar" method="POST">
 								<h2 class="rentalFormTitle">Book a Rental Today!</h2>
 								<div class="rentalField">
 									<label for="carsSelect">Select a Vehicle</label>
-									<select class="form-select form-select-lg" id="carsSelect">
+									<select class="form-select form-select-lg" id="carsSelect" required>
+										<option value="" name="car"></option>
 										{{#each cars}}
 											<option value="{{this.id}}">{{this.year}} {{this.make}} {{this.model}}</option>
 										{{/each}}
@@ -33,24 +34,24 @@
 									<div class="col"> --}}
 								<div class="rentalField">
 									<label for="pickupLocation">Pickup Location</label>
-									<input class="form-control form-control-lg rentalField" id="pickupLocation">
+									<input class="form-control form-control-lg rentalField" id="pickupLocation" name="pickupLocation" required>
 								</div>
 								<div class="rentalField">
 									<label for="paymentSelect">Select a Payment Option</label>
-									<select class="form-control form-select-lg rentalField" id="paymentSelect">
-								
+									<select class="form-control form-select-lg rentalField" id="paymentSelect" name="payment" required>
+										<option value=""></option>
 										{{#each payments}}
-											{{#if this.active}}<option value="{{this.id}}">{{this.name}} -- {{this.accountNumber}}</option>{{/if}}
+											{{#if this.active}}<option value="{{this.name}}">{{this.name}} -- {{this.accountNumber}}</option>{{/if}}
 										{{/each}}
 									</select>
 								</div>
 								<div class="rentalField">
 									<label for="startTime">From:</label>
-									<input class="form-control form-control-lg rentalField" id="startTime" type="datetime-local">
+									<input class="form-control form-control-lg rentalField" id="startTime" type="datetime-local" name="startTime" required>
 								</div>
 								<div class="rentalField">
 									<label for="endTime">To:</label>
-									<input class="form-control form-control-lg rentalField" id="endTime" type="datetime-local">
+									<input class="form-control form-control-lg rentalField" id="endTime" type="datetime-local" name="endTime" required>
 								</div>
 								<input class="btn btn-primary" type="submit" value="Submit">
 							</form>

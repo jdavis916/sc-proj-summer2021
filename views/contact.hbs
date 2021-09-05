@@ -1,15 +1,31 @@
 <main class="{{pageMainClass}}">
 	<h1 class="contactTitle">{{title}}</h1>
 	<p class="lead text-muted">{{msg}}</p>
-	<section class="py-5 text-center container">
+	<section class="py-5 {{!-- text-center --}} container">
 	    <div class="row py-lg-5">
-	      <div class="col-lg-6 col-md-8 mx-auto">
-	        
-	        
-	        <p>
-	          <a href="#" class="btn btn-primary my-2">Login</a>
-	          <a href="#" class="btn btn-secondary my-2">Sign Up</a>
-	        </p>
+	      <div class="col-lg-6 col-md-8 mx-auto contactForm">
+	      	<form action="/contact" method='POST'>
+	      		<label for="name">Full Name</label>
+	      		<input type="text" id="name" name="name" class="form-control" required>
+	      		<label for="email">Email</label>
+	      		<input type="email" id="email" name="email" class="form-control" required>
+	      		<label for="phone">Phone Number</label>
+	      		<input type="tel" id="phone" name="phone" class="form-control" required>
+	      		<label for="subjects">Reason for Contact</label>
+	      		<select id="subjects" class="form-select" required>
+	      			<option value=""></option>
+	      			{{#each subjects}}
+	      				<option value="{{this}}">{{this}}</option>
+	      			{{/each}}
+	      		</select>
+	      		<label for="msg">Message</label>
+	      		<textarea id="msg" name="msg" class="form-control" required></textarea>
+	      		<input type="submit" class="btn btn-primary" value="Submit">
+	      	</form>
+	      </div>
+	      <div class="col-lg-6 col-md-8 mx-auto contactInfo">
+
+	      	<i class="w">Helo</i>
 	      </div>
 	    </div>
   	</section>
