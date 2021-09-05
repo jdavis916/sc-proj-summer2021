@@ -1,4 +1,4 @@
-import { profPic, payments, cars, map } from '../stubs';
+import { profPic, payments, cars, map, subjects } from '../stubs';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
 var express = require('express');
@@ -36,6 +36,7 @@ var activeMenu = {
   contact: false
 };
 var error = false;
+var details = [];
 /* GET home page */
 router.get('/', function(req, res, next) {
   //database queries will be added later
@@ -55,7 +56,8 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'contact',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    active: getMenuActive('contact', activeMenu)
+    active: getMenuActive('contact', activeMenu),
+    subjects: subjects
   });
 })
 .get('/rental', /*authUser*/ function(req, res, next) {
@@ -123,13 +125,27 @@ router.get('/', function(req, res, next) {
   });
 })
 //rental form post
-.post('/thankyou', function(req,res,next){
+.post('/rentcar', function(req,res,next){
+  console.log(req.body);
+  details = ['Payment method: ' + req.body.payment,'Start Time: ' + req.body.startTime,
+    'End Time: ' + req.body.endTime,'Pickup Location: ' + req.body.pickupLocation];
   res.render('thankyou', {
     pageMainClass: 'thankYou',
     title: 'Thanks! Your rental has been successfully placed.',
+    details: details,
     path: '/'
   })
 })
+//contact post route
+.post('/contact', function(req,res,next){
+  console.log(req.body);
+  res.render('thankyou', {
+    pageMainClass: 'thankYou',
+    title: 'Thank your for your feedback. We will reach out to you as soon as we can.',
+    path: '/'
+  })
+})
+
 // //testing thank you page 
 // .get('/thankyou', function(req,res,next){
 //   res.render('thankyou', {

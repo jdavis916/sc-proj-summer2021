@@ -122,10 +122,20 @@ var rides = [{
   car: '2021 Tesla Model Y',
   start_location: '123 W East St.',
   end_location:'456 S Nort Rd.'
-}]
+}];
+
+var subjects = [
+  'Ride Feedback',
+  'Site Performance',
+  'Payment Options',
+  'Profile Issues',
+  'Report a Car/Car Owner',
+  'Other'
+]
 module.exports = {
   profPic,
   payments,
   cars,
-  map
+  map,
+  subjects
 };
