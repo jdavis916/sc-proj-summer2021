@@ -273,5 +273,8 @@ ul{
     background-color: var(--secondary-color);
   }*/
 }
-
+/* rental page */
+.map{
+  width: 100%;
+}
 
