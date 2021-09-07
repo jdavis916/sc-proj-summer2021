@@ -1,7 +1,9 @@
 console.log("Script file connected");
 //changes login button to log out
 window.addEventListener('DOMContentLoaded', (event) => {
+	//var  profPic = {{profPic}};
     console.log('DOM fully loaded and parsed');
+    console.log('profile pic: ' + profPic)
     /* if(!loggedIn){
     	document.getElementById('#btnProf').style.visibility = "hidden";
     } */
@@ -18,7 +20,13 @@ window.addEventListener('DOMContentLoaded', (event) => {
 			location.replace('/login');
 		}
 	}
-
+	//console.log(active);
+	var prof = document.getElementsByClassName('profPic');
+	if(prof){
+		prof[0].style.backgroundImage = `url(${profPic})`;
+		//prof[0].style.backgroundSize = 'cover';
+		console.log('profile pic rendered');
+	}
 	/* document.querySelector('#btnProf').onclick = function {
 		location.replace('/profile');
 	} */

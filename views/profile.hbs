@@ -1,10 +1,10 @@
 <main class="{{pageMainClass}}">
 	<main class={{pageMainClass}}>
   <div  class="container">
-    <section class="row">
+    <section class="row profileInfo">
       <!--<div class="row profId">-->
-        <div class="col-12 col-md-4">
-          <img src="{{profPic}}" class="img-fluid imgR" alt="profile photo" />
+        <div class="col-12 col-md-4 profPic">
+          {{!-- <img src="{{profPic}}" class="img-fluid imgR" alt="profile photo" /> --}}
         </div>
         <div class="col-12 col-md-8">
           <p>{{fname}} {{lname}}</p>
@@ -14,6 +14,31 @@
           <p>Address: {{address}}</p>
         </div>
       <!--</div>-->
+    </section>
+    <section class="row">
+      <h2>Recent Rides</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">From</th>
+            <th scope="col">To</th>
+            <th scope="col">Price</th>
+            <th scope="col">Car</th>
+            <th scope="col">Start Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each rides}}
+            <tr>
+              <td>{{this.start}}</td>
+              <td>{{this.end}}</td>
+              <td>{{this.price}}</td>
+              <td>{{this.car}}</td>
+              <td>{{this.start_location}}</td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </section>
   </div>
 </main>

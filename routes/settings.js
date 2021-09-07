@@ -48,7 +48,8 @@ router
     phone:'(719)574-7782',
     address:'123 N. East St.',
     profPic: profPic,
-    active: getMenuActive('settings', activeMenu)
+    active: getMenuActive('settings', activeMenu),
+    profPic: profPic
   });
 })
 .get('/payment', function(req, res, next) {
@@ -64,8 +65,8 @@ router
     email:'123@456.com',
     phone:'(719)574-7782',
     address:'123 N. East St.',
-    profPic: profPic
-    //active: getMenuActive('payment', activeMenu)
+    profPic: profPic,
+    active: getMenuActive('settings', activeMenu)
   });
 })
 .get('/profile', function(req, res, next) {
@@ -75,12 +76,13 @@ router
     pageMainClass: 'settingsProfile',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    //active: getMenuActive('payment', activeMenu),
-    fname:'Joe',
-    lname:'Swanson',
-    email:'123@456.com',
-    phone:'(719)574-7782',
-    address:'123 N. East St.',
+    active: getMenuActive('settings', activeMenu),
+    username: req.user.username,
+    fname:req.user.f_name|| 'None Set',
+    lname: req.user.l_name|| 'None Set',
+    email: req.user.email|| 'None Set',
+    phone: req.user.phone || 'None Set',
+    address: req.user.address|| 'None Set',
     profPic: profPic
   });
 })

@@ -1,4 +1,4 @@
-import { profPic, payments, cars, map, subjects } from '../stubs';
+import { profPic, payments, cars, map, subjects, rides } from '../stubs';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
 var express = require('express');
@@ -21,7 +21,7 @@ function getMenuActive(key, menu){
   //makes a copy of the menu object
   var activeMenu = JSON.parse(JSON.stringify(menu));
   // var activeMenu = menu;
-
+  console.log(activeMenu);
   //changed the proper key to true based on page route
   activeMenu[key] = true;
 
@@ -33,10 +33,12 @@ var activeMenu = {
   rental: false,
   settings: false,
   profile: false,
-  contact: false
+  contact: false,
+  profile: false
 };
 var error = false;
 var details = [];
+console.log(activeMenu);
 /* GET home page */
 router.get('/', function(req, res, next) {
   //database queries will be added later
@@ -46,7 +48,8 @@ router.get('/', function(req, res, next) {
   	pageMainClass: 'pgHome',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    active: getMenuActive('home', activeMenu)
+    active: getMenuActive('home', activeMenu),
+    profPic: profPic
   });
 })
 .get('/contact', function(req, res, next) {
@@ -57,7 +60,8 @@ router.get('/', function(req, res, next) {
     loggedIn: loginStatus(req),
     who: whoIs(req),
     active: getMenuActive('contact', activeMenu),
-    subjects: subjects
+    subjects: subjects,
+    profPic: profPic
   });
 })
 .get('/rental', /*authUser*/ function(req, res, next) {
@@ -71,7 +75,8 @@ router.get('/', function(req, res, next) {
     map: map,
     cars: cars,
     payments: payments,
-    active: getMenuActive('rental', activeMenu)
+    active: getMenuActive('rental', activeMenu),
+    profPic: profPic
   });
 })
 .get('/profile', /*authUser*/ function(req, res, next) {
@@ -81,14 +86,16 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'profile',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    active: getMenuActive('payment', activeMenu),
+    active: getMenuActive('profile', activeMenu),
     fname:req.user.f_name,
     lname:req.user.l_name,
     email:req.user.email,
     username: req.user.username,
     phone:req.user.phone,
     address:req.user.address,
-    profPic:profPic
+    profPic:profPic,
+    rides: rides,
+    profPic: profPic
   });
 })
 .get('/list', /*authUser*/ function(req, res, next) {
@@ -98,6 +105,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'list',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    profPic: profPic
     //active: getMenuActive('list', activeMenu)
   });
 })
@@ -108,6 +116,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'signup',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    profPic: profPic
     //error: signInError
     //active: getMenuActive('list', activeMenu)
   });
@@ -120,6 +129,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'login',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    profPic: profPic
     //error: signInError
     //active: getMenuActive('list', activeMenu)
   });

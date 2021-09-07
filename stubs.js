@@ -1,8 +1,9 @@
 //this file contains stub data for pages
-
+var d = new Date(1630885183965);
+var date = d.toLocaleString();
 var profPic = '/img/profStub.jpg';
 
-var map = '/img/mapStub.png'
+var map = '/img/fullMap.jpg'
 
 var payments = [{
   id: 1,
@@ -99,29 +100,29 @@ var cars = [{
 }];
 
 var rides = [{
-  date: Date.now(),
+  start: date,
+  end: date,
   price: '$' + 35,
   car: '2024 Subaru Impreza',
-  start_location: '123 W East St.',
-  end_location:'456 S Nort Rd.'
+  start_location: '123 W East St.'
 },{
-  date: Date.now(),
+  start: date,
+  end: date,
   price: '$' + 48,
   car: '2027 Ford Focus',
-  start_location: '456 W North St.',
-  end_location:'456 S North Rd.'
+  start_location: '456 W North St.'
 },{
-  date: Date.now(),
+  start: date,
+  end: date,
   price: '$' + 28,
   car: '2024 Subaru Impreza',
-  start_location: '123 W East St.',
-  end_location:'456 S Nort Rd.'
+  start_location: '123 W East St.'
 },{
-  date: Date.now(),
+  start: date,
+  end: date,
   price: '$' + 30,
   car: '2021 Tesla Model Y',
-  start_location: '123 W East St.',
-  end_location:'456 S Nort Rd.'
+  start_location: '123 W East St.'
 }];
 
 var subjects = [
@@ -133,6 +134,7 @@ var subjects = [
   'Other'
 ]
 module.exports = {
+  rides,
   profPic,
   payments,
   cars,
