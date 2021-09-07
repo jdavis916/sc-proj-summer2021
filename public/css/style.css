@@ -43,9 +43,9 @@ body {
 .imgR{
   width: 100%;
 }
-/*a {
-  color: #00B7FF;
-}*/
+a {
+  text-decoration: none;
+}
 /**{
   margin: 0;
   padding: 0;
@@ -54,16 +54,40 @@ body {
 
 h1{
   font-size: 4.5rem;
-  color: #FFD991;
+  /*color: #FFD991;*/
+  text-align: center;
 }
 .rental h2{
   text-align: center;
 }
 /*making the footer stick to the bottom*/
 main{
-   min-height: calc(100vh - 250px);
+   min-height: calc(100vh - 180px);
 }
 
+/*nav and footer styling*/
+.navbar, .footer{
+  background-color: var(--secondary-color);
+  color: white;
+}
+.footer{
+  text-align: center;
+}
+/*.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}*/
+/*----------------------*/
 .carimg{
   width: 100%;
   padding: 0;
@@ -72,7 +96,18 @@ main{
   margin-top: 20px;
   text-align: center;
 }
-
+/*Profile Picture*/
+.profPic{
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-color: #4d71ff;
+  border-width: 3px;
+  border-radius: 50%;
+  border-style: solid;
+  background-position: center;
+}
+/*---------------*/
 .carCard{
   max-height: 16rem;
   font-size: 1rem;
@@ -163,14 +198,13 @@ ul{
   /*position: absolute;
   margin-top: auto;*/
   /*background-color: var(--secondary-color);*/
-  color: white;
+  
 }
 .footerLinks{
   list-style-type: none;
 }
 .footerItem{
-  padding: 15px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .formSignin, .formSignup{
 
@@ -180,7 +214,8 @@ ul{
   margin: 0 auto;
   margin-top: 10%;
   text-align: center;
-  background-color: #04012E;
+  /*background-color: #04012E;*/
+
   z-index: 1;
 }
 
@@ -202,11 +237,25 @@ ul{
   background-position: center;
   background-size: cover;
 }
-
+/*dividers*/
+.divider{
+  margin: 50px 0 50px 0;
+}
+/*--------*/
 /*rental map*/
-.mapContainer, .rentalDivider{
+.mapContainer{
   text-align: center;
   margin-bottom: 40px;
+  /*width: 100vw;*/
+}
+.mapContainer{
+  height: 800px;
+  overflow: hidden;
+}
+.mapContainer img{
+  transform: translateY(-10%);
+  transform: translateX(-10%);
+  margin-top: -10px;
 }
 /*----------*/
 /*rental form*/
@@ -217,8 +266,11 @@ ul{
 .rentalForm{
   height: 100%;
   padding: 15px;
-  color: white;
-  background-color: var(--secondary-color);
+  /*color: white;*/
+  /*background-color: var(--secondary-color);*/
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0728ab36;
   max-width: 900px;
   border-radius: 15px;
 }
@@ -257,9 +309,31 @@ ul{
   margin-left: 15px;
   border-radius: 15px;
 }
+/*Profile Info Margins*/
+.profileInfo{
+  margin: 20px 0 20px 0;
+}
+/*--------------------*/
+
+/*Settings page*/
+.settingsLinks{
+  margin-top: 5rem;
+}
+.settingsTxt{
+  font-size: 1.5rem;
+  width: 300px;
+  padding: 0 20px 0 20px;
+  margin-bottom: 20px;
+}
+/*-------------*/
+
 /*------------*/
 /*Responsive*/
-
+@media (max-width: 975px){
+  .settingsHead{
+    margin-top: 35px;
+  }
+}
 @media all and (min-width: 768px){
   p{
     font-size: 1.5rem;
