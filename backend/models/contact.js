@@ -5,6 +5,7 @@ var app = express();
 app.use(mongoSanitize());
 const Schema = mongoose.Schema;
 export const contactSchema = new Schema({
+    _id: Schema.Types.ObjectId,
     name: String,
     subject: String,
     phone: String,
