@@ -54,6 +54,7 @@ a {
 
 h1{
   font-size: 4.5rem;
+  color: #FFD991;
   /*color: #FFD991;*/
   text-align: center;
 }
@@ -299,15 +300,37 @@ ul{
 .contactArea{
   padding: 15px;
   color: white;
-  background-color: var(--secondary-color);
+  background-color: whitesmoke;
   border-radius: 15px;
+  color: black;
+}
+/*aligning contact us text center*/
+.contact h1{
+  text-align: center;
+  font-size: 4rem;
+}
+/*aligning send us message center*/
+.contact p{
+  text-align: center;
+  font-size: 1.75rem;
+}
+/*changing color for submit btn*/
+.contact .btn-primary{
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+/*change label text size*/
+.contact label{
+  font-size: 1rem;
 }
 .contactInfoCard{
   padding: 15px;
-  color: white;
-  background-color: var(--main-color);
+  color: black;
+  background-color: whitesmoke;
   margin-left: 15px;
   border-radius: 15px;
+  font-size: medium;
 }
 /*Profile Info Margins*/
 .profileInfo{
