@@ -1,15 +1,16 @@
-import { profPic, payments, cars, map, subjects, rides, getPayments } from '../controller';
+import { profPic, payments, cars, map, subjects, getRides, getCars } from '../controller';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
 import CarModel from '../backend/models/cars';
 import RideModel from '../backend/models/rides';
 import ContactModel from '../backend/models/contact';
+import session from 'express-session';
 var d = new Date(1630885183965);
 var date = d.toLocaleString();
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose').set('debug', true);
 var db = mongoose.connection;
 var activeMenu;
 //logged in variable
@@ -32,7 +33,7 @@ function getMenuActive(key, menu){
 
   return activeMenu;
 }
-//getPayments(req,res,next);
+
 var activeMenu = {
   home: false,
   rental: false,
@@ -45,9 +46,10 @@ var error = false;
 var details = [];
 //console.log(activeMenu);
 /* GET home page */
-router.get('/', function(req, res, next) {
+router.get('/', async function(req, res, next) {
+  //console.log(req);
   //console.log(req.user);
-  
+  //console.log(req.cookies);
   //database queries will be added later
   res.render('index', { 
   	title: 'Autono',
@@ -58,6 +60,7 @@ router.get('/', function(req, res, next) {
     active: getMenuActive('home', activeMenu),
     profPic: profPic
   });
+  
 })
 .get('/contact', function(req, res, next) {
   res.render('contact', { 
@@ -71,39 +74,20 @@ router.get('/', function(req, res, next) {
     profPic: profPic
   });
 })
-.get('/rental', /*authUser*/ function(req, res, next) {
+.get('/rental', /*authUser*/ async function(req, res, next) {
   console.log(payments);
-  res.render('rental', { 
-    title: 'Rent a Car',
-    msg: 'Choose from our selection',
-    pageMainClass: 'rental',
-    loggedIn: loginStatus(req),
-    who: whoIs(req),
-    map: map,
-    cars: cars,
-    payments: payments,
-    active: getMenuActive('rental', activeMenu),
-    profPic: profPic
-  });
+  try{
+    await getCars(req, res);
+  }catch(err){
+    console.log('error: ' + err);
+  }
 })
-.get('/profile', /*authUser*/ function(req, res, next) {
-  res.render('profile', { 
-    title: 'Profile',
-    msg: req.user.f_name + "'s Profile",
-    pageMainClass: 'profile',
-    loggedIn: loginStatus(req),
-    who: whoIs(req),
-    active: getMenuActive('profile', activeMenu),
-    fname:req.user.f_name,
-    lname:req.user.l_name,
-    email: req.user.email,
-    username: req.user.username,
-    phone:req.user.phone,
-    address:req.user.address,
-    profPic:profPic,
-    rides: rides,
-    profPic: profPic
-  });
+.get('/profile', /*authUser*/ async function(req, res, next) {
+  try{
+    await getRides(req, res);
+  }catch(err){
+    console.log('error: ' + err);
+  }
 })
 .get('/list', /*authUser*/ function(req, res, next) {
   res.render('list', { 
@@ -199,7 +183,7 @@ router.get('/', function(req, res, next) {
 //this was purely to get info into the database. not an actual route
 .post('/cars', function(req,res,next){
   const car = new CarModel({
-    _id: mongoose.Types.ObjectId(),
+    _id: req.body.id,
     year: req.body.year,
     make: req.body.make,
     model: req.body.model,

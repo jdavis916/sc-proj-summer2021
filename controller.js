@@ -6,7 +6,7 @@ import ContactModel from './backend/models/contact';
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose').set('debug', true);;
 var db = mongoose.connection;
 var activeMenu;
 
@@ -47,119 +47,51 @@ var map = '/img/fullMap.jpg'
 //query objects
 ;
 
-var payments = [{
-  id: 1,
-  name: 'Chase',
-  accountNumber: 445564, 
-  exp: 'June 2025', 
-  active: true
-},{
-  id: 2,
-  name: 'Apple Pay',
-  accountNumber: 25638, 
-  exp: 'Aug 2028', 
-  active: false
-}];
+var payments; 
+// [{
+//   id: 1,
+//   name: 'Chase',
+//   accountNumber: 445564, 
+//   exp: 'June 2025', 
+//   active: true
+// },{
+//   id: 2,
+//   name: 'Apple Pay',
+//   accountNumber: 25638, 
+//   exp: 'Aug 2028', 
+//   active: false
+// }]
+;
 
 
 
-var cars = [{
-  price: 45,
-  year: 2020,
-  make: 'Tesla',
-  model: 'Model 3',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'Red',
-  img: '/img/civicTypeR2019.png'
-},{
-  price: 45,
-  year: 2019,
-  make: 'Tesla',
-  model: 'Model S',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'White',
-  img: '/img/civicTypeR2019.png'
-},{
-  price: 45,
-  year: 2021,
-  make: 'Tesla',
-  model: 'Model X',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'Blue',
-  img: '/img/civicTypeR2019.png'
-},{
-  price: 45,
-  year: 2021,
-  make: 'Tesla',
-  model: 'Model Y',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'Black',
-  img: '/img/civicTypeR2019.png'
-},{
-  price: 45,
-  year: 2026,
-  make: 'Toyota',
-  model: 'Avalon',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'Red',
-  img: '/img/civicTypeR2019.png'
-},{
-  price: 45,
-  year: 2027,
-  make: 'Ford',
-  model: 'Focus',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'Blue',
-  img: '/img/sonic2019.png'
-},{
-  price: 45,
-  year: 2024,
-  make: 'Subaru',
-  model: 'Impreza',
-  type: 'Sedan',
-  doors: 4,
-  seats: 5,
-  color: 'White',
-  img: '/img/audiA42018.png'
-}];
-
-var rides = [{
-  start: date,
-  end: date,
-  price: 35,
-  car: '2024 Subaru Impreza',
-  start_location: '123 W East St.'
-},{
-  start: date,
-  end: date,
-  price: 48,
-  car: '2027 Ford Focus',
-  start_location: '456 W North St.'
-},{
-  start: date,
-  end: date,
-  price: 28,
-  car: '2024 Subaru Impreza',
-  start_location: '123 W East St.'
-},{
-  start: date,
-  end: date,
-  price: 30,
-  car: '2021 Tesla Model Y',
-  start_location: '123 W East St.'
-}];
+var cars;
+var rides;
+//  = [{
+//   start: date,
+//   end: date,
+//   price: 35,
+//   car: '2024 Subaru Impreza',
+//   start_location: '123 W East St.'
+// },{
+//   start: date,
+//   end: date,
+//   price: 48,
+//   car: '2027 Ford Focus',
+//   start_location: '456 W North St.'
+// },{
+//   start: date,
+//   end: date,
+//   price: 28,
+//   car: '2024 Subaru Impreza',
+//   start_location: '123 W East St.'
+// },{
+//   start: date,
+//   end: date,
+//   price: 30,
+//   car: '2021 Tesla Model Y',
+//   start_location: '123 W East St.'
+// }];
 
 //these objects do not query the database
 var subjects = [
@@ -178,12 +110,64 @@ var avatar = [{
   path: '/img/woman'
 }];
 
+//query objects-------
+//Cars
+async function getCars(req,res){
+  cars = CarModel.find().lean().then((resp)=>{
+    try{
+        res.render('rental', { 
+        title: 'Rent a Car',
+        msg: 'Choose from our selection',
+        pageMainClass: 'rental',
+        loggedIn: loginStatus(req),
+        who: whoIs(req),
+        map: map,
+        cars: resp,
+        payments: payments,
+        active: getMenuActive('rental', activeMenu),
+        profPic: profPic
+      });
+    }catch(err){
+      console.log('error: ' + err);
+    }
+  })
+}
+
+//Rides
+async function getRides(req, res){ 
+  let id = req.user.id.toString();
+   //queries DB for rides matching your user id, then 
+   //converts the results to a JSON object for handlebars 
+   rides = RideModel.find({ user: id }).lean().then((resp)=>{
+    try{
+      res.render('profile', { 
+        title: 'Profile',
+        msg: req.user.f_name + "'s Profile",
+        pageMainClass: 'profile',
+        loggedIn: loginStatus(req),
+        who: whoIs(req),
+        active: getMenuActive('profile', activeMenu),
+        fname:req.user.f_name,
+        lname:req.user.l_name,
+        email: req.user.email,
+        username: req.user.username,
+        phone:req.user.phone,
+        address:req.user.address,
+        profPic:profPic,
+        rides: resp,
+        profPic: profPic
+      });
+      console.log(resp);
+    }catch(err){
+      console.log('error: ' + err);
+    }  
+  });
+}
+
+
 module.exports = {
-  async getPayments(req,res,next){
-  let user = await db.collection('users').find(req.user._id);
-  console.log(res.email);
-  return user;
-},
+  getCars,
+  getRides,
   rides,
   profPic,
   payments,

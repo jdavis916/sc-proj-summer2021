@@ -6,7 +6,7 @@ var app = express();
 const Schema = mongoose.Schema;
 export const CarSchema = new Schema({
 	_id: {
-        type: Schema.Types.ObjectId
+        type: Number
     },
 	year: {
 		type: Number
@@ -36,6 +36,6 @@ export const CarSchema = new Schema({
   		type: String
   	}
 });
-var CarModel = mongoose.model("cars", CarSchema);
+var CarModel = mongoose.model("cars", CarSchema, "cars");
  
 module.exports = CarModel;
