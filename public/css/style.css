@@ -123,7 +123,7 @@ main{
 .whatWeDo p{
   font-size: 1rem;
   text-align:  center;
-  color: #FFD991;
+  color: #000000;
 }
 .whatWeDo{
   margin-bottom:  45px;
@@ -131,9 +131,10 @@ main{
 .rentalBox{
   font-size: 1.5rem;
   text-align: center;
+  margin-bottom: 50px;
 }
 .rentalBox p{
-  color: #FFD991;
+  color: #000000;
 }
 .rentalBox ul{
   padding: 0;
@@ -141,7 +142,7 @@ main{
   
 }
 .testimonial h3{
-  color: #FFD991;
+  color: #000000;
 }
 .testimonial h5{
   font-size:  0.9rem;
