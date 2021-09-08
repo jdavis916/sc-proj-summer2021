@@ -1,4 +1,5 @@
 //import { profPic, payments, cars, map } from '../stubs';
+import { profPic, payments, cars, map, subjects, rides, getPayments } from '../controller';
 import { authUser, authRole, authBan } from '../basicAuth';
 import User from "../backend/models/user";
 var express = require('express');
@@ -7,7 +8,7 @@ var passport = require('passport');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
 var activeMenu;
-import { profPic, payments, cars, map } from '../stubs';
+//import { profPic, payments, cars, map } from '../controller';
 function loginStatus(req){
   return (req.user)? true: false;
 }
@@ -57,7 +58,7 @@ router
       passport.authenticate('local', { 
         failureRedirect: '/error' 
       })(req, res, () => {
-        error = false;
+        //error = false;
         res.setHeader('Content-Type', 'application/json');
         res.redirect('/profile');
       });

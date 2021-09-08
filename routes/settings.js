@@ -5,7 +5,7 @@ const mongoose = require('mongoose');
 var db = mongoose.connection;
 //import {loginStatus,whoIs} from './index';
 //logged in variable
-import { profPic, payments, cars, map } from '../stubs';
+import { profPic, payments, cars, map } from '../controller';
 function loginStatus(req){
   return (req.user)? true: false;
 }
