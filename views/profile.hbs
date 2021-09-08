@@ -1,20 +1,25 @@
 <main class="{{pageMainClass}}">
 	<main class={{pageMainClass}}>
   <div  class="container">
-    <section class="row profileInfo">
-      <!--<div class="row profId">-->
-        <div class="col-12 col-md-4 profPic">
-          {{!-- <img src="{{profPic}}" class="img-fluid imgR" alt="profile photo" /> --}}
+    <div class="row profileInfo">
+      <div class="col-12">
+        <div class="row">
+          <div class="col-6 col-lg-3 profPic">
+                {{!-- <img src="{{profPic}}" class="img-fluid imgR" alt="profile photo" /> --}}
+              </div>
+              <div class="col-6 col-lg-3">
+            <p>{{fname}} {{lname}}</p>
+            <p>{{email}}</p>
+            <p>{{phone}}</p>
+          </div>
+          <div class="col-12 col-lg-3">
+            <h1 class=" settingsHead">
+                Profile Settings
+              </h1>
+            </div>
         </div>
-        <div class="col-12 col-md-8">
-          <p>{{fname}} {{lname}}</p>
-          <p>{{email}}</p>
-          <p>{{phone}}</p>
-          <p>Username: {{username}}</p>
-          <p>Address: {{address}}</p>
-        </div>
-      <!--</div>-->
-    </section>
+      </div>
+    </div>
     <section class="row">
       <h2>Recent Rides</h2>
       <table class="table">

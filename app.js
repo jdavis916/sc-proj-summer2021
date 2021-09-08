@@ -17,6 +17,7 @@ var indexRouter = require('./routes/index');
 var adminRouter = require('./routes/admin');
 var settingsRouter = require('./routes/settings');
 var usersRouter = require('./routes/users');
+//var controller = require('./controller');
 
 var app = express();
 
@@ -79,7 +80,7 @@ app.use('/', indexRouter);
 app.use('/admin', adminRouter);
 app.use('/settings', settingsRouter);
 app.use('/users', usersRouter);
-
+//app.use('/', controller);
 // function auth (req, res, next) {
 //   console.log(req.username);
 

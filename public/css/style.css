@@ -54,7 +54,7 @@ a {
 
 h1{
   font-size: 4.5rem;
-  color: #FFD991;
+  /*color: #FFD991;*/
   /*color: #FFD991;*/
   text-align: center;
 }
@@ -63,9 +63,14 @@ h1{
 }
 /*making the footer stick to the bottom*/
 main{
-   min-height: calc(100vh - 180px);
+   min-height: calc(103vh - 180px);
 }
-
+.navLink{
+  font-size: 1.25rem;
+}
+.logo{
+  font-size: 1.4rem;
+}
 /*nav and footer styling*/
 .navbar, .footer{
   background-color: var(--secondary-color);
@@ -74,21 +79,9 @@ main{
 .footer{
   text-align: center;
 }
-/*.fa-facebook {
-  background: #3B5998;
+.fa-facebook ,.fa-twitter ,.fa-instagram, .footerItem{
   color: white;
 }
-
-.fa-twitter {
-  background: #55ACEE;
-  color: white;
-}
-
-.fa-instagram {
-  background: #125688;
-  color: white;
-}*/
-/*----------------------*/
 .carimg{
   width: 100%;
   padding: 0;
@@ -247,17 +240,31 @@ ul{
 .mapContainer{
   text-align: center;
   margin-bottom: 40px;
-  /*width: 100vw;*/
+  width: 100%;
+  
+  
+  border: 30px solid;
+  border-image: linear-gradient(#000, #000) 3;
+    /* box-shadow: inset 1px 7px 4px 4px #000000; */
+  border-image-width: 5px;
 }
-.mapContainer{
-  height: 800px;
+.mapArea{
   overflow: hidden;
+  height: 800px;
 }
-.mapContainer img{
+.mapContainer img {
+  /*width: calc(100% + 40px);
+  margin-left: calc(-20px);
+  margin-right: calc(-20px);*/
+  /*position: absolute;
+  left: -10%;
+  transform: translateX(10%);*/
+}
+/*.mapContainer img{
   transform: translateY(-10%);
   transform: translateX(-10%);
   margin-top: -10px;
-}
+}*/
 /*----------*/
 /*rental form*/
 .carList{
@@ -336,6 +343,11 @@ ul{
 .profileInfo{
   margin: 20px 0 20px 0;
 }
+.profileInfo p{
+  font-size: 1.3rem;
+  width: 75%;
+  word-wrap: break-word;
+}
 /*--------------------*/
 
 /*Settings page*/
@@ -357,19 +369,19 @@ ul{
     margin-top: 35px;
   }
 }
-@media all and (min-width: 768px){
+/*@media all and (min-width: 768px){
   p{
     font-size: 1.5rem;
   }
-  /*.formSignin, .formSignup{
+  .formSignin, .formSignup{
     width: 50%;
     border-radius: 15px;
     padding: 15px;
     margin: 0 auto;
     text-align: center;
     background-color: var(--secondary-color);
-  }*/
-}
+  }
+}*/
 /* rental page */
 .map{
   width: 100%;
