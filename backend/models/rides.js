@@ -35,6 +35,6 @@ export const RideSchema = new Schema({
 	}
 });
  // 
-var RideModel = mongoose.model("rides", RideSchema);
+var RideModel = mongoose.model("rides", RideSchema, "rides");
  
 module.exports = RideModel;

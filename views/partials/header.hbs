@@ -57,7 +57,7 @@
                 </li>
                 <li class="nav-item">
                   {{#if loggedIn}}
-                  <a class="nav-link navLink{{#if active.profile}}active{{/if}}" id="btnProf"  href='/profile'>{{who}}</a>
+                  <a class="nav-link navLink {{#if active.profile}}active{{/if}}" id="btnProf"  href='/profile'>{{who}}</a>
                   {{else}}
                   <a class="nav-link navLink" id="btnProf"  href='#'></a>
                   {{/if}}
