@@ -1,38 +1,23 @@
+import { 
+  parseDate,
+  profPic, 
+  payments, 
+  cars, 
+  map, 
+  subjects, 
+  getRides, 
+  getCars,
+  getUser, 
+  loginStatus,
+  whoIs,
+  getMenuActive,
+  activeMenu 
+} from '../controller';
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
-//import {loginStatus,whoIs} from './index';
-//logged in variable
-import { profPic, payments, cars, map } from '../controller';
-function loginStatus(req){
-  return (req.user)? true: false;
-}
-
-//gets the users first name
-function whoIs(req){
-  return (req.user) ? (req.user.f_name) : undefined;
-}
-
-function getMenuActive(key, menu){
-  //makes a copy of the menu object
-  var activeMenu = JSON.parse(JSON.stringify(menu));
-  // var activeMenu = menu;
-
-  //changed the proper key to true based on page route
-  activeMenu[key] = true;
-
-  return activeMenu;
-}
-
-var activeMenu = {
-  home: false,
-  rental: false,
-  settings: false,
-  profile: false,
-  contact: false
-};
 
 router
 .get('/', function(req, res, next) {
@@ -42,11 +27,11 @@ router
     pageMainClass: 'settings',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    fname:'Joe',
-    lname:'Swanson',
-    email:'123@456.com',
-    phone:'(719)574-7782',
-    address:'123 N. East St.',
+    fname: req.user.f_name,
+    lname: req.user.l_name,
+    email: req.user.email,
+    phone: req.user.phone,
+    address: req.user.address,
     profPic: profPic,
     active: getMenuActive('settings', activeMenu),
     profPic: profPic

@@ -38,62 +38,17 @@ var activeMenu = {
   contact: false,
   profile: false
 };
+function parseDate(){
+  var d = new Date(1630885183965);
+  var date = d.toLocaleString();
+  return date;
+}
 
-var d = new Date(1630885183965);
-var date = d.toLocaleString();
 var profPic = '/img/profStub.jpg';
-
-var map = '/img/fullMap.jpg'
-//query objects
-;
-
-var payments; 
-// [{
-//   id: 1,
-//   name: 'Chase',
-//   accountNumber: 445564, 
-//   exp: 'June 2025', 
-//   active: true
-// },{
-//   id: 2,
-//   name: 'Apple Pay',
-//   accountNumber: 25638, 
-//   exp: 'Aug 2028', 
-//   active: false
-// }]
-;
-
-
-
+var map = '/img/fullMap.jpg';
+var payments;
 var cars;
 var rides;
-//  = [{
-//   start: date,
-//   end: date,
-//   price: 35,
-//   car: '2024 Subaru Impreza',
-//   start_location: '123 W East St.'
-// },{
-//   start: date,
-//   end: date,
-//   price: 48,
-//   car: '2027 Ford Focus',
-//   start_location: '456 W North St.'
-// },{
-//   start: date,
-//   end: date,
-//   price: 28,
-//   car: '2024 Subaru Impreza',
-//   start_location: '123 W East St.'
-// },{
-//   start: date,
-//   end: date,
-//   price: 30,
-//   car: '2021 Tesla Model Y',
-//   start_location: '123 W East St.'
-// }];
-
-//these objects do not query the database
 var subjects = [
   'Ride Feedback',
   'Site Performance',
@@ -111,6 +66,22 @@ var avatar = [{
 }];
 
 //query objects-------
+
+//User Info
+async function getUser(req, res){ 
+  let id = req.user.id.toString();
+   //queries DB for profile matching your user id 
+   //converts the results to a JSON object for handlebars 
+   let me = User.find({ _id: id }).lean().then((resp)=>{
+    try{
+      console.log(resp);
+      return resp;
+    }catch(err){
+      console.log('error: ' + err);
+    }  
+  });
+}
+
 //Cars
 async function getCars(req,res){
   cars = CarModel.find().lean().then((resp)=>{
@@ -166,6 +137,12 @@ async function getRides(req, res){
 
 
 module.exports = {
+  getUser,
+  parseDate,
+  loginStatus,
+  whoIs,
+  getMenuActive,
+  activeMenu,
   getCars,
   getRides,
   rides,
