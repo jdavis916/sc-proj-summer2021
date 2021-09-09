@@ -33,7 +33,7 @@ var error = false;
 var details = [];
 
 router
-.post('/rentcar', sanitizeArr, function(req,res,next){
+.post('/rentcar', body('address').matches(/^[a-zA-Z0-9 .-]*$/).trim(), function(req,res,next){
   
   details = ['Payment method: ' + req.body.payment,'Start Time: ' + req.body.startTime,
     'End Time: ' + req.body.endTime,'Pickup Location: ' + req.body.pickupLocation];

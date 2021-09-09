@@ -56,7 +56,23 @@ function parseDate(){
 
 var profPic = '/img/profStub.jpg';
 var map = '/img/fullMap.jpg';
-var payments;
+var payments = [{
+  name: 'Chase',
+  accountNumber: 1275567,
+  exp: 'July 2027'
+},{
+  name: 'Financial Plus',
+  accountNumber: 98789,
+  exp: 'Aug 2024'
+},{
+  name: 'Apple Pay',
+  accountNumber: 74563,
+  exp: 'Sept 2029'
+},{
+  name: 'Google',
+  accountNumber: 982134,
+  exp: 'Jan 2025'
+}];
 var cars;
 var rides;
 var subjects = [
@@ -134,9 +150,8 @@ async function getRides(req, res){
         username: req.user.username,
         phone:req.user.phone,
         address:req.user.address,
-        profPic:profPic,
-        rides: resp,
-        profPic: profPic
+        profPic: profPic,
+        rides: resp
       });
       console.log(resp);
     }catch(err){
