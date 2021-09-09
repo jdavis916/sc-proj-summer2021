@@ -19,6 +19,7 @@ var router = express.Router();
 var passport = require('passport');
 const mongoose = require('mongoose');
 var db = mongoose.connection;
+
 const {body, validationResult } = require('express-validator');
 
 router

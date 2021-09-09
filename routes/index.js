@@ -1,6 +1,7 @@
 //pulling in data from the controller
+
 import {
-  //sanitizeArr, 
+  //sanitizeArr,
   parseDate,
   profPic, 
   payments, 
@@ -25,6 +26,7 @@ import CarModel from '../backend/models/cars';
 import RideModel from '../backend/models/rides';
 import ContactModel from '../backend/models/contact';
 import session from 'express-session';
+
 
 const {body, validationResult } = require('express-validator');
 var express = require('express');
