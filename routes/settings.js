@@ -68,7 +68,7 @@ router
     fname:req.user.f_name|| 'None Set',
     lname: req.user.l_name|| 'None Set',
     email: req.user.email|| 'None Set',
-    phone: req.user.phone || 'None Set',
+    phone: req.user.phone|| 'None Set',
     address: req.user.address|| 'None Set',
     profPic: profPic
   });

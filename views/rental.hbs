@@ -43,7 +43,7 @@
 									<select class="form-control form-select-lg rentalField" id="paymentSelect" name="payment" required>
 										<option value=""></option>
 										{{#each payments}}
-											{{#if this.active}}<option value="{{this.name}}">{{this.name}} -- {{this.accountNumber}}</option>{{/if}}
+											<option value="{{this.name}}">{{this.name}} -- {{this.accountNumber}}</option>
 										{{/each}}
 									</select>
 								</div>
@@ -60,7 +60,7 @@
 						</div>
 					</div>
 					<div class="col-12 col-md-6 offset-md-1">
-						<h2>Available Cars:</h2>
+						<h2 class="availableCars">Available Cars:</h2>
 						<div class="row">
 						{{#each cars}}
 								{{!-- <img src="..." class="card-img-top" alt="..."> --}}
