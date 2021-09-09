@@ -30,11 +30,11 @@ export const User = new Schema({
         type: String, 
         default: ''
     },
-    inquiries: [{
-        type: Schema.Types.ObjectId, 
-        ref: 'contact',
-        default: []
-    }],
+    // inquiries: [{
+    //     type: Schema.Types.ObjectId, 
+    //     ref: 'contact',
+    //     default: []
+    // }],
     rides: [{
         type: Schema.Types.ObjectId, 
         ref: 'Rides',
@@ -44,31 +44,31 @@ export const User = new Schema({
         type: Number, 
         default: 0
     },
-    reward_status: {
-        type: String, 
-        default: ''
-    },
-    voucher_tokens: {
-        type: Number, 
-        default: 0
-    },
-    used_coupons: {
-        coupon_id: [{
-            type: Schema.Types.ObjectId, 
-            ref: 'Coupons',
-            default: []
-        }]
-    },
+    // reward_status: {
+    //     type: String, 
+    //     default: ''
+    // },
+    // voucher_tokens: {
+    //     type: Number, 
+    //     default: 0
+    // },
+    // used_coupons: {
+    //     coupon_id: [{
+    //         type: Schema.Types.ObjectId, 
+    //         ref: 'Coupons',
+    //         default: []
+    //     }]
+    // },
     pay: {
         method_name: {
             type: String, 
             default: ''
         },
-        token_id: String,
-        token: {
-            type: String, 
-            default: ''
-        },
+        // token_id: String,
+        // token: {
+        //     type: String, 
+        //     default: ''
+        // },
         exp_date: Date,
         active: {
             type: Boolean, 
@@ -77,6 +77,6 @@ export const User = new Schema({
     }
 });
 User.plugin(passportLocalMongoose);
-var userModel = mongoose.model("users", User);
+var UserModel = mongoose.model("users", User);
  
-module.exports = userModel;
+module.exports = UserModel;

@@ -43,9 +43,9 @@ body {
 .imgR{
   width: 100%;
 }
-/*a {
-  color: #00B7FF;
-}*/
+a {
+  text-decoration: none;
+}
 /**{
   margin: 0;
   padding: 0;
@@ -54,16 +54,34 @@ body {
 
 h1{
   font-size: 4.5rem;
-  color: #FFD991;
+  /*color: #FFD991;*/
+  /*color: #FFD991;*/
+  text-align: center;
 }
 .rental h2{
   text-align: center;
 }
 /*making the footer stick to the bottom*/
 main{
-   min-height: calc(100vh - 250px);
+   min-height: calc(103vh - 180px);
 }
-
+.navLink{
+  font-size: 1.25rem;
+}
+.logo{
+  font-size: 1.4rem;
+}
+/*nav and footer styling*/
+.navbar, .footer{
+  background-color: var(--secondary-color);
+  color: white;
+}
+.footer{
+  text-align: center;
+}
+.fa-facebook ,.fa-twitter ,.fa-instagram, .footerItem{
+  color: white;
+}
 .carimg{
   width: 100%;
   padding: 0;
@@ -72,7 +90,18 @@ main{
   margin-top: 20px;
   text-align: center;
 }
-
+/*Profile Picture*/
+.profPic{
+  background-size: cover;
+  width: 150px;
+  height: 150px;
+  border-color: #4d71ff;
+  border-width: 3px;
+  border-radius: 50%;
+  border-style: solid;
+  background-position: center;
+}
+/*---------------*/
 .carCard{
   max-height: 16rem;
   font-size: 1rem;
@@ -164,14 +193,13 @@ ul{
   /*position: absolute;
   margin-top: auto;*/
   /*background-color: var(--secondary-color);*/
-  color: white;
+  
 }
 .footerLinks{
   list-style-type: none;
 }
 .footerItem{
-  padding: 15px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 .formSignin, .formSignup{
 
@@ -181,7 +209,8 @@ ul{
   margin: 0 auto;
   margin-top: 10%;
   text-align: center;
-  background-color: #04012E;
+  /*background-color: #04012E;*/
+
   z-index: 1;
 }
 
@@ -203,12 +232,40 @@ ul{
   background-position: center;
   background-size: cover;
 }
-
+/*dividers*/
+.divider{
+  margin: 50px 0 50px 0;
+}
+/*--------*/
 /*rental map*/
-.mapContainer, .rentalDivider{
+.mapContainer{
   text-align: center;
   margin-bottom: 40px;
+  width: 100%;
+  
+  
+  border: 30px solid;
+  border-image: linear-gradient(#000, #000) 3;
+    /* box-shadow: inset 1px 7px 4px 4px #000000; */
+  border-image-width: 5px;
 }
+.mapArea{
+  overflow: hidden;
+  height: 800px;
+}
+.mapContainer img {
+  /*width: calc(100% + 40px);
+  margin-left: calc(-20px);
+  margin-right: calc(-20px);*/
+  /*position: absolute;
+  left: -10%;
+  transform: translateX(10%);*/
+}
+/*.mapContainer img{
+  transform: translateY(-10%);
+  transform: translateX(-10%);
+  margin-top: -10px;
+}*/
 /*----------*/
 /*rental form*/
 .carList{
@@ -218,8 +275,11 @@ ul{
 .rentalForm{
   height: 100%;
   padding: 15px;
-  color: white;
-  background-color: var(--secondary-color);
+  /*color: white;*/
+  /*background-color: var(--secondary-color);*/
+  border-style: solid;
+  border-width: 2px;
+  border-color: #0728ab36;
   max-width: 900px;
   border-radius: 15px;
 }
@@ -248,32 +308,81 @@ ul{
 .contactArea{
   padding: 15px;
   color: white;
-  background-color: var(--secondary-color);
+  background-color: whitesmoke;
   border-radius: 15px;
+  color: black;
+}
+/*aligning contact us text center*/
+.contact h1{
+  text-align: center;
+  font-size: 4rem;
+}
+/*aligning send us message center*/
+.contact p{
+  text-align: center;
+  font-size: 1.75rem;
+}
+/*changing color for submit btn*/
+.contact .btn-primary{
+  color: white;
+  padding: 5px;
+  border-radius: 10px;
+}
+/*change label text size*/
+.contact label{
+  font-size: 1rem;
 }
 .contactInfoCard{
   padding: 15px;
-  color: white;
-  background-color: var(--main-color);
+  color: black;
+  background-color: whitesmoke;
   margin-left: 15px;
   border-radius: 15px;
+  font-size: medium;
 }
+/*Profile Info Margins*/
+.profileInfo{
+  margin: 20px 0 20px 0;
+}
+.profileInfo p{
+  font-size: 1.3rem;
+  width: 75%;
+  word-wrap: break-word;
+}
+/*--------------------*/
+
+/*Settings page*/
+.settingsLinks{
+  margin-top: 5rem;
+}
+.settingsTxt{
+  font-size: 1.5rem;
+  width: 300px;
+  padding: 0 20px 0 20px;
+  margin-bottom: 20px;
+}
+/*-------------*/
+
 /*------------*/
 /*Responsive*/
-
-@media all and (min-width: 768px){
+@media (max-width: 975px){
+  .settingsHead{
+    margin-top: 35px;
+  }
+}
+/*@media all and (min-width: 768px){
   p{
     font-size: 1.5rem;
   }
-  /*.formSignin, .formSignup{
+  .formSignin, .formSignup{
     width: 50%;
     border-radius: 15px;
     padding: 15px;
     margin: 0 auto;
     text-align: center;
     background-color: var(--secondary-color);
-  }*/
-}
+  }
+}*/
 /* rental page */
 .map{
   width: 100%;

@@ -2,31 +2,33 @@
 	<div class="container">
 		<h1>{{title}}</h1>
 		<section class="row">
-			<div class="row rentalTxt">
+			<div class="col-12 rentalTxt">
 				<h2>Service Areas Near You</h2>
 			</div>
 		</section>
-		<section class="row mapContainer">
+		<section class="row ">
 			<div class="col-12">
-				<figure class="mapArea">
-					<img class="map" src={{map}} />
-				</figure>
+				<section class="mapContainer">
+					<figure class="mapArea">
+						<img class="map" src={{map}} />
+					</figure>
+				</section>
 			</div>
 		</section>
-		<hr class="rentalDivider"></hr>
+		<hr class="divider"></hr>
 		<section class="row carList">
 			{{!-- <div class="col-md-12">
 				<div class="row"> --}}
 					<div class="col-12 col-md-5">
 						<div class="row rentalForm">
-							<form class="col-sm-12 mb-3" action="/rentcar" method="POST">
+							<form class="col-sm-12 mb-3" action="/submit/rentcar" method="POST">
 								<h2 class="rentalFormTitle">Book a Rental Today!</h2>
 								<div class="rentalField">
-									<label for="carsSelect">Select a Vehicle</label>
-									<select class="form-select form-select-lg" id="carsSelect" required>
+									<label for="car">Select a Vehicle</label>
+									<select class="form-select form-select-lg" id="car" name="car"required>
 										<option value="" name="car"></option>
 										{{#each cars}}
-											<option value="{{this.id}}">{{this.year}} {{this.make}} {{this.model}}</option>
+											<option value="{{this.year}} {{this.make}} {{this.model}}">{{this.year}} {{this.make}} {{this.model}}</option>
 										{{/each}}
 									</select>
 								</div>

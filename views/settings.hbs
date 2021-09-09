@@ -1,42 +1,48 @@
 <main class={{pageMainClass}}>
 <section class="container settings">
-	<div class="row profId">
-		<div class="col-md">
-			<img src={{profPic}} alt="profile photo" />
-		</div>
-		<div class="col-md">
-			<p>{{fname}} {{lname}}</p>
-			<p>{{email}}</p>
-			<p>{{phone}}</p>
+	<div class="row profileInfo">
+		<div class="col-12">
+			<div class="row">
+				<div class="col-6 col-lg-3 profPic">
+		          {{!-- <img src="{{profPic}}" class="img-fluid imgR" alt="profile photo" /> --}}
+		        </div>
+		        <div class="col-6 col-lg-3">
+					<p>{{fname}} {{lname}}</p>
+					<p>{{email}}</p>
+					<p>{{phone}}</p>
+				</div>
+				<div class="col-12 col-lg-3">
+					<h1 class=" settingsHead">
+			  			Settings
+			  		</h1>
+			  	</div>
+			</div>
 		</div>
 	</div>
-  		<p class="settingsTxt">
-  			Settings
-  		</p>
-  	<section class="row profileSettings">
-  		<p class="profileSettingsTxt">
-  			Profile Settings
-  		</p>
- 	</section>
-  	<section class="row savedPlaces">
-  		<p class="savedPlacesTxtt">
-  			Saved Places
-  		</p>
-	</section>
-  	<section class="row privacy">
-  		<p class="privacyTxt">
-  			Privacy
-  		</p>
-  	</section>
-  	<section class="row trustedContacts">
-  		<p class="trustedContactsTxt">
-  			Trusted Contacts
-  		</p>
-  	</section>
-  	<section class="row signOut">
-  		<p class="signOutTxt">
-  			Sign Out
-  		</p>
-  	</section>
+	<hr class="divider">
+	<div class="row settingsLinks">
+		<div class="col-12">
+		  	<section class="col-8 offset-2 text-center profileSettings">
+		  		<a href="/settings/profile" class="settingsTxt btn btn-primary">
+		  			Profile Settings
+		  		</a>
+		 	</section>
+		  	<section class="col-8 offset-2 text-center savedPlaces">
+		  		<a href="/settings/payment" class="settingsTxt btn btn-primary">
+		  			Payment Settings
+		  		</a>
+			</section>
+		  	<section class="col-8 offset-2 text-center privacy">
+		  		<a href="#" class="settingsTxt btn btn-primary">
+		  			Privacy
+		  		</a>
+		  	</section>
+		  	<section class="col-8 offset-2 text-center trustedContacts">
+		  		<a href="#" class="settingsTxt btn btn-primary">
+		  			Trusted Contacts
+		  		</a>
+		  	</section>
+  		</div>
+  	</div>
 </section>
 </main>

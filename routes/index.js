@@ -1,54 +1,51 @@
-import { profPic, payments, cars, map, subjects } from '../stubs';
-import { authUser, authRole, authBan } from '../basicAuth';
+//pulling in data from the controller
+import { 
+  parseDate,
+  profPic, 
+  payments, 
+  cars, 
+  map, 
+  subjects, 
+  getRides, 
+  getCars,
+  getUser, 
+  loginStatus,
+  whoIs,
+  getMenuActive,
+  activeMenu 
+} from '../controller';
+
+//control access to pages based on user role
+import { authUser, authRole, authBan } from '../basicAuth'; 
+
+//database models
 import User from "../backend/models/user";
+import CarModel from '../backend/models/cars';
+import RideModel from '../backend/models/rides';
+import ContactModel from '../backend/models/contact';
+import session from 'express-session';
+
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
-const mongoose = require('mongoose');
+const mongoose = require('mongoose').set('debug', true);
 var db = mongoose.connection;
-var activeMenu;
-//logged in variable
-function loginStatus(req){
-  return (req.user)? true: false;
-}
-
-//gets the users first name
-function whoIs(req){
-  return (req.user) ? (req.user.f_name) : undefined;
-}
-
-function getMenuActive(key, menu){
-  //makes a copy of the menu object
-  var activeMenu = JSON.parse(JSON.stringify(menu));
-  // var activeMenu = menu;
-
-  //changed the proper key to true based on page route
-  activeMenu[key] = true;
-
-  return activeMenu;
-}
-
-var activeMenu = {
-  home: false,
-  rental: false,
-  settings: false,
-  profile: false,
-  contact: false
-};
 var error = false;
 var details = [];
+
 /* GET home page */
-router.get('/', function(req, res, next) {
-  //database queries will be added later
+router.get('/', async function(req, res, next) {
   res.render('index', { 
   	title: 'Autono',
   	msg: 'Making the future of driving an option for anyone, anywhere, any weather.',
   	pageMainClass: 'pgHome',
     loggedIn: loginStatus(req),
     who: whoIs(req),
-    active: getMenuActive('home', activeMenu)
+    active: getMenuActive('home', activeMenu),
+    profPic: profPic
   });
 })
+//get contact page
 .get('/contact', function(req, res, next) {
   res.render('contact', { 
     title: 'Contact Us',
@@ -57,39 +54,26 @@ router.get('/', function(req, res, next) {
     loggedIn: loginStatus(req),
     who: whoIs(req),
     active: getMenuActive('contact', activeMenu),
-    subjects: subjects
+    subjects: subjects,
+    profPic: profPic
   });
 })
-.get('/rental', /*authUser*/ function(req, res, next) {
+//calls the getCars function from the controller file that renders the information on the page
+.get('/rental', /*authUser*/ async function(req, res, next) {
   console.log(payments);
-  res.render('rental', { 
-    title: 'Rent a Car',
-    msg: 'Choose from our selection',
-    pageMainClass: 'rental',
-    loggedIn: loginStatus(req),
-    who: whoIs(req),
-    map: map,
-    cars: cars,
-    payments: payments,
-    active: getMenuActive('rental', activeMenu)
-  });
+  try{
+    await getCars(req, res);
+  }catch(err){
+    console.log('error: ' + err);
+  }
 })
-.get('/profile', /*authUser*/ function(req, res, next) {
-  res.render('profile', { 
-    title: 'Profile',
-    msg: req.user.f_name + "'s Profile",
-    pageMainClass: 'profile',
-    loggedIn: loginStatus(req),
-    who: whoIs(req),
-    active: getMenuActive('payment', activeMenu),
-    fname:req.user.f_name,
-    lname:req.user.l_name,
-    email:req.user.email,
-    username: req.user.username,
-    phone:req.user.phone,
-    address:req.user.address,
-    profPic:profPic
-  });
+//calls the getRides function from the controller file that renders the information on the page
+.get('/profile', /*authUser*/ async function(req, res, next) {
+  try{
+    await getRides(req, res);
+  }catch(err){
+    console.log('error: ' + err);
+  }
 })
 .get('/list', /*authUser*/ function(req, res, next) {
   res.render('list', { 
@@ -98,6 +82,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'list',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    profPic: profPic
     //active: getMenuActive('list', activeMenu)
   });
 })
@@ -108,6 +93,7 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'signup',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    profPic: profPic
     //error: signInError
     //active: getMenuActive('list', activeMenu)
   });
@@ -120,38 +106,10 @@ router.get('/', function(req, res, next) {
     pageMainClass: 'login',
     loggedIn: loginStatus(req),
     who: whoIs(req),
+    profPic: profPic
     //error: signInError
     //active: getMenuActive('list', activeMenu)
   });
 })
-//rental form post
-.post('/rentcar', function(req,res,next){
-  console.log(req.body);
-  details = ['Payment method: ' + req.body.payment,'Start Time: ' + req.body.startTime,
-    'End Time: ' + req.body.endTime,'Pickup Location: ' + req.body.pickupLocation];
-  res.render('thankyou', {
-    pageMainClass: 'thankYou',
-    title: 'Thanks! Your rental has been successfully placed.',
-    details: details,
-    path: '/'
-  })
-})
-//contact post route
-.post('/contact', function(req,res,next){
-  console.log(req.body);
-  res.render('thankyou', {
-    pageMainClass: 'thankYou',
-    title: 'Thank your for your feedback. We will reach out to you as soon as we can.',
-    path: '/'
-  })
-})
 
-// //testing thank you page 
-// .get('/thankyou', function(req,res,next){
-//   res.render('thankyou', {
-//     pageMainClass: 'thankYou',
-//     title: 'Thanks! Your rental has been successfully placed.',
-//     path: '/rental'
-//   })
-// })
 module.exports = router;
