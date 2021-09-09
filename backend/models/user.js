@@ -16,19 +16,23 @@ export const User = new Schema({
     email: {type: String, required: true},
     username: {
         type: String, 
-        required: true
+        required: true,
+        strict: false
     },
     password: {
         type: String, 
-        required: true
+        required: true,
+        strict: false
     },
     prof_pic: {
         type: String, 
-        default: ''
+        default: '',
+        strict: false
     },
     address: {
         type: String, 
-        default: ''
+        default: '',
+        strict: false
     },
     // inquiries: [{
     //     type: Schema.Types.ObjectId, 
@@ -38,11 +42,13 @@ export const User = new Schema({
     rides: [{
         type: Schema.Types.ObjectId, 
         ref: 'Rides',
-        default: []
+        default: [],
+        strict: false
     }],
     ride_count: {
         type: Number, 
-        default: 0
+        default: 0,
+        strict: false
     },
     // reward_status: {
     //     type: String, 
@@ -62,7 +68,8 @@ export const User = new Schema({
     pay: {
         method_name: {
             type: String, 
-            default: ''
+            default: '',
+        strict: false
         },
         // token_id: String,
         // token: {
@@ -72,7 +79,8 @@ export const User = new Schema({
         exp_date: Date,
         active: {
             type: Boolean, 
-            default: true
+            default: true,
+            strict: false
         }
     }
 });
