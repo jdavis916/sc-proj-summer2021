@@ -19,6 +19,11 @@ export const User = new Schema({
         required: true,
         strict: false
     },
+    phone: {
+        type: String,
+        required: true,
+        strict: false
+    },
     password: {
         type: String, 
         required: true,

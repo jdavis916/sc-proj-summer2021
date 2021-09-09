@@ -1,7 +1,7 @@
 //pulling in data from the controller
 
 import {
-  //sanitizeArr,
+  sanitizeArr,
   parseDate,
   profPic, 
   payments, 
@@ -36,18 +36,18 @@ const mongoose = require('mongoose').set('debug', true);
 var db = mongoose.connection;
 var error = false;
 var details = [];
-var sanitizeArr = [
-    body('name').matches(/^[a-zA-Z0-9 ]*$/).trim(),
-    body('email').isEmail().normalizeEmail([{gmail_remove_dots: true}]).trim(),
-    body('phone').matches(/^[a-zA-Z0-9 ]*$/).trim(),
-    body('subject').matches(/^[a-zA-Z0-9 ]*$/).trim(),
-    body('msg').matches(/^[a-zA-Z0-9 ]*$/).trim(),
-    body('address').matches(/^[a-zA-Z0-9 .]*$/).trim()
-];
+// var sanitizeArr = [
+//     body('name').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+//     body('email').isEmail().normalizeEmail([{gmail_remove_dots: true}]).trim(),
+//     body('phone').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+//     body('subject').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+//     body('msg').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+//     body('address').matches(/^[a-zA-Z0-9 .]*$/).trim()
+// ];
 
 /* GET home page */
 router.get('/', async function(req, res, next) {
-  console.log(body);
+  console.log(req.user);
   res.render('index', { 
   	title: 'Autono',
   	msg: 'Making the future of driving an option for anyone, anywhere, any weather.',

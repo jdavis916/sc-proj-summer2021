@@ -48,6 +48,7 @@ router
     username: req.body.username,
     password: req.body.password,
     address: req.body.address,
+    phone: req.body.phone,
   }), req.body.password, ((err, user)=>{
     if(err){
       console.log(req.password);
