@@ -21,30 +21,43 @@
     </div>
   <hr class="divider">
     <section class="row">
-      <div class="col-12 profEdit">
-        <h3>Verified Information</h3>
+      <div class="col-12 col-md-6 profileDetails" id="profileDetails">
+        <h2 class="settingsSubHead">Verified Information</h2>
         <figure>
-          <div class="">
+          {{!-- <div class="">
             <img src={{newPic}}>
-            <button type="button" class="btn-dark">Upload New Profile Image</button>
+          </div> --}}
+          <div class="">
+            <p>Username:  {{username}}</p>
           </div>
           <div class="">
-            <p>Username: {{username}}</p>
-            <button type="button" class="btn-dark">Edit</button>
+            <p>Email:  {{email}}</p>
           </div>
           <div class="">
-            <p>Email: {{email}}</p>
-            <button type="button" class="btn-dark">Edit</button>
+            <p>Phone:  {{phone}}</p>
           </div>
           <div class="">
-            <p>Phone: {{phone}}</p>
-            <button type="button" class="btn-dark">Edit</button>
+            <p>Address:  {{address}}</p>
           </div>
-          <div class="">
-            <p>Address: {{address}}</p>
-            <button type="button" class="btn-dark">Edit</button>
+          <div class="row editBtn">
+            <button class="btn btn-primary profEdit" id="profEdit">Edit</button>
           </div>
         </figure>
+      </div>
+      <div class="col-12 col-md-6 profileEdit d-none" id="profileEdit">
+        <form class="editProfForm" action="" method="POST">
+          <h2>Edit Profile</h2>
+          <label></label>
+          <input class="form-control editField" type="text" id="username" name="username">
+          <label></label>
+          <input class="form-control editField" type="email" id="email" name="email">
+          <label></label>
+          <input class="form-control editField" type="tel" id="phone" name="phone">
+          <label></label>
+          <input class="form-control editField" type="text" id="address" name="address">
+          <input type="submit" class="btn btn-primary" value="submit">
+          <input type="button" class="btn btn-danger" id="cancel" value="cancel">
+        </form>
       </div>
     </section>
   </div>

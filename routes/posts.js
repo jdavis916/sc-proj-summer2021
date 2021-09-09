@@ -1,4 +1,5 @@
 import { 
+  sanitizeArr, 
   parseDate,
   profPic, 
   payments, 
@@ -22,7 +23,7 @@ import CarModel from '../backend/models/cars';
 import RideModel from '../backend/models/rides';
 import ContactModel from '../backend/models/contact';
 import session from 'express-session';
-
+const {body, validationResult } = require('express-validator');
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
@@ -32,10 +33,15 @@ var error = false;
 var details = [];
 
 router
-.post('/rentcar', function(req,res,next){
-  console.log(req.body);
+.post('/rentcar', sanitizeArr, function(req,res,next){
+  
   details = ['Payment method: ' + req.body.payment,'Start Time: ' + req.body.startTime,
     'End Time: ' + req.body.endTime,'Pickup Location: ' + req.body.pickupLocation];
+    var err = validationResult(req);
+       if (!err.isEmpty()) {
+           console.log(err.mapped())
+           // you stop here 
+       }else{
   const rental = new RideModel({
   _id: mongoose.Types.ObjectId(),
   user: req.user._id,
@@ -58,11 +64,17 @@ router
   .catch(err => {
       res.send(err);
       console.log(err);
-  }); 
+  })} 
 })
 //contact post route
-.post('/contact', function(req,res,next){
+.post('/contact', sanitizeArr, function(req,res,next){
+  //console.log('validator body: ' + body);
   console.log(req.body);
+  var err = validationResult(req);
+       if (!err.isEmpty()) {
+           res.send('error: invalid characters in form.')
+           // you stop here 
+       }else{
   const contactMsg = new ContactModel({
     _id: mongoose.Types.ObjectId(),
     name: req.body.name,
@@ -83,7 +95,17 @@ router
   .catch(err => {
       res.send(err);
       console.log(err);
-  });
+  })}
+})
+.put('/profupdate', async function(req,res,next){
+  await User.update({username: req.body.username, email:req.body.email, phone: req.body.phone, address: req.body.address}, 
+    {upsert: true}, 
+    function(err){
+      if(err){
+        console.log("error: " + err);
+      }
+      console.log('update successful');
+    })
 })
 
 module.exports = router;

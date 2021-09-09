@@ -1,5 +1,6 @@
 //pulling in data from the controller
-import { 
+import {
+  //sanitizeArr, 
   parseDate,
   profPic, 
   payments, 
@@ -25,6 +26,7 @@ import RideModel from '../backend/models/rides';
 import ContactModel from '../backend/models/contact';
 import session from 'express-session';
 
+const {body, validationResult } = require('express-validator');
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
@@ -32,9 +34,18 @@ const mongoose = require('mongoose').set('debug', true);
 var db = mongoose.connection;
 var error = false;
 var details = [];
+var sanitizeArr = [
+    body('name').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+    body('email').isEmail().normalizeEmail([{gmail_remove_dots: true}]).trim(),
+    body('phone').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+    body('subject').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+    body('msg').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+    body('address').matches(/^[a-zA-Z0-9 .]*$/).trim()
+];
 
 /* GET home page */
 router.get('/', async function(req, res, next) {
+  console.log(body);
   res.render('index', { 
   	title: 'Autono',
   	msg: 'Making the future of driving an option for anyone, anywhere, any weather.',

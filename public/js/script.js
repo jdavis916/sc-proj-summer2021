@@ -31,3 +31,16 @@ window.addEventListener('DOMContentLoaded', (event) => {
 		location.replace('/profile');
 	} */
 });
+//click to enable profile edit
+if(document.getElementsByClassName('settingsProfile')){
+	document.querySelector('#profEdit').onclick = function(){
+		document.querySelector('#profileDetails').classList.add('d-none');
+		document.querySelector('#profileEdit').classList.remove('d-none');
+		
+	}
+	document.querySelector('#cancel').onclick = function(){
+		document.querySelector('#profileDetails').classList.remove('d-none');
+		document.querySelector('#profileEdit').classList.add('d-none');
+		
+	}
+}
