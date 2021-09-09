@@ -283,7 +283,7 @@ ul{
   max-width: 900px;
   border-radius: 15px;
 }
-.rentalField, .contactField{
+.rentalField, .contactField, .editField{
   margin-bottom: 25px;
 }
 /*-----------*/
@@ -362,6 +362,19 @@ ul{
   margin-bottom: 20px;
 }
 /*-------------*/
+/*Profile Settings*/
+.editBtn{
+  padding: 10px;
+}
+.profEdit{
+  width: 100px;
+  position: relative;
+  vertical-align: bottom;
+}
+.settingsSubHead{
+  margin-bottom: 30px;
+}
+/*----------------*/
 
 /*------------*/
 /*Responsive*/

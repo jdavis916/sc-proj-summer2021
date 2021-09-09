@@ -9,31 +9,40 @@ export const CarSchema = new Schema({
         type: Number
     },
 	year: {
-		type: Number
+		type: Number,
+        strict: false
 	},
   	make: {
-  		type: String
+  		type: String,
+        strict: false
   	},
   	model: {
-		type: String
+		type: String,
+        strict: false
   	},
   	type: {
-  		type: String
+  		type: String,
+        strict: false
   	},
   	doors: {
-  		type: Number
+  		type: Number,
+        strict: false
   	},
   	seats: {
-  		type: Number
+  		type: Number,
+        strict: false
   	},
   	color:{
-  		type: String
+  		type: String,
+        strict: false
   	},
   	price:{
-  		type: Number
+  		type: Number,
+        strict: false
   	},
   	img: {
-  		type: String
+  		type: String,
+        strict: false
   	}
 });
 var CarModel = mongoose.model("cars", CarSchema, "cars");
