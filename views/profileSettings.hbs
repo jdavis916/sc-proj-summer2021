@@ -48,13 +48,13 @@
         <form class="editProfForm" action="/submit/profupdate" method="POST">
           <h2>Edit Profile</h2>
           <label for="username">Username</label>
-          <input class="form-control editField" type="text" id="username" name="username">
+          <input class="form-control editField" type="text" id="username" name="username" value="{{username}}">
           <label for="email">Email</label>
-          <input class="form-control editField" type="email" id="email" name="email">
+          <input class="form-control editField" type="email" id="email" name="email" value="{{email}}">
           <label for="phone">Phone</label>
-          <input class="form-control editField" type="tel" id="phone" name="phone">
+          <input class="form-control editField" type="tel" id="phone" name="phone" value="{{phone}}">
           <label for="address">Address</label>
-          <input class="form-control editField" type="text" id="address" name="address">
+          <input class="form-control editField" type="text" id="address" name="address" value="{{address}}">
           <input type="submit" class="btn btn-primary" value="submit">
           <input type="button" class="btn btn-danger" id="cancel" value="cancel">
         </form>

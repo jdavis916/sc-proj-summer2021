@@ -126,14 +126,18 @@ main{
   border-radius: 50%;
   border-style: solid;
   border-color: #FFFFFF;
-  margin-bottom: 120px;
+  margin-bottom: 150px;
 }
 /*making header and footer full width*/
 /*body > .container-fluid, footer > .container-fluid{
   padding-left: 0;
   padding-right: 0;
 }*/
-
+/*Home page margins*/
+.homeHero{
+  margin-bottom: 40px;
+}
+/*-----------------*/
 /*sigin in alignment*/
 .signinContainer{
 
@@ -154,6 +158,14 @@ main{
 
 .homeTitle{
   color: #0728AB;
+}
+.whatWeDoSubHead{
+  margin-top: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+.whatWeDoTxt{
+  margin-bottom: 100px;
 }
 .whatWeDo p{
   font-size: 1rem;
@@ -182,7 +194,7 @@ main{
   font-size:  0.9rem;
 }
 .testimonial p{
-  font-size:  0.6rem;
+  font-size:  1rem;
 }
 
 li a{
@@ -305,7 +317,9 @@ ul{
   margin-bottom: 40px;
 }
 /*-----------*/
-
+/*.testimonyQuote{
+  font-size: 1rem;
+}*/
 /*thank you page*/
 .thanksBox{
   line-height: 4rem;
@@ -353,7 +367,7 @@ ul{
 }
 /*change label text size*/
 .contact label{
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .contactInfoCard{
   padding: 15px;
@@ -362,6 +376,10 @@ ul{
   margin-left: 15px;
   border-radius: 15px;
   font-size: medium;
+  line-height: 2rem;
+}
+.contactInfoCard h3{
+
 }
 .availableCars{
     margin-top: 0px;
