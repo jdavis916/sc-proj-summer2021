@@ -10,7 +10,7 @@ import MongoStore from 'connect-mongo';
 var authenticate = require('./authenticate');
 //Loads the handlebars module
 const handlebars = require('express-handlebars');
-import bodyparser from 'body-parser';
+//import bodyparser from 'body-parser';
 import mongoose from 'mongoose';
 //import cors from 'cors';
 var indexRouter = require('./routes/index');
@@ -19,7 +19,7 @@ var settingsRouter = require('./routes/settings');
 var usersRouter = require('./routes/users');
 var postRouter = require('./routes/posts');
 //var controller = require('./controller');
-
+import bodyparser from 'body-parser';
 var app = express();
 
 //database name
