@@ -97,15 +97,41 @@ router
       console.log(err);
   })}
 })
-.put('/profupdate', async function(req,res,next){
-  await User.update({username: req.body.username, email:req.body.email, phone: req.body.phone, address: req.body.address}, 
-    {upsert: true}, 
-    function(err){
-      if(err){
-        console.log("error: " + err);
-      }
-      console.log('update successful');
-    })
+.post('/profupdate', sanitizeArr, async function(req,res,next){
+  var err = validationResult(req);
+  if (!err.isEmpty()) {
+    console.log(err.mapped())
+           // you stop here 
+  }else{
+    var filter = {_id: req.user._id};
+    var update = {"$set":{
+      username: req.body.username,
+      email: req.body.email,
+      phone: req.body.phone,
+      address: req.body.address
+    }};
+    try{
+      let upd = await User.findOneAndUpdate(filter, update,{
+        returnOriginal: false,
+        returnNewDocument: true,
+        //useFindAndModify: false
+      }, function(err, result){
+        if(err){
+          res.send(err);
+        }
+        console.log('result: ' + result);
+      })/*.then((res,err)=>{
+        if(err){
+          console.log(err);
+        }
+        console.log('update success');
+      })
+*/     res.redirect('/login');
+    }catch(err){
+      console.log(err);
+    }
+  }
+
 })
 
 module.exports = router;

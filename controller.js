@@ -15,7 +15,7 @@ const {body, validationResult } = require('express-validator');
 var sanitizeArr = [
     body('name').matches(/^[a-zA-Z0-9 ]*$/).trim(),
     body('email').isEmail().normalizeEmail([{gmail_remove_dots: true}]).trim(),
-    body('phone').matches(/^[a-zA-Z0-9 ]*$/).trim(),
+    //body('phone').matches(/^[a-zA-Z0-9 ]*$/).trim(),
     body('subject').matches(/^[a-zA-Z0-9 ]*$/).trim(),
     body('msg').matches(/^[a-zA-Z0-9 ]*$/).trim(),
     body('address').matches(/^[a-zA-Z0-9 .]*$/).trim()
