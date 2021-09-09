@@ -69,7 +69,7 @@ export const User = new Schema({
         method_name: {
             type: String, 
             default: '',
-        strict: false
+            strict: false
         },
         // token_id: String,
         // token: {

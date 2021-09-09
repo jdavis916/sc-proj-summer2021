@@ -6,8 +6,7 @@ var app = express();
 const Schema = mongoose.Schema;
 export const CarSchema = new Schema({
 	_id: {
-        type: Number,
-        strict: false
+        type: Number
     },
 	year: {
 		type: Number,

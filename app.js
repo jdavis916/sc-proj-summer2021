@@ -19,7 +19,9 @@ var settingsRouter = require('./routes/settings');
 var usersRouter = require('./routes/users');
 var postRouter = require('./routes/posts');
 //var controller = require('./controller');
+
 import bodyparser from 'body-parser';
+
 var app = express();
 
 //database name
